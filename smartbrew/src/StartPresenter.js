@@ -1,9 +1,11 @@
 import StartView from './StartView';
 import {NotBrewView, BrewView} from './BrewingStatusView';
 import React, {useState} from 'react'
+import writeUserData from './firebaseModel';
 function StartPresenter(){
   const [brewState, setBrewState] = useState(false);
   function brewStateACB(boolean){
+    writeUserData("fredrik", boolean)
     setBrewState(boolean)
   }
   return (<>
