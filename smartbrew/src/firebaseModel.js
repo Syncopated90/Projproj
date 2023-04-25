@@ -1,4 +1,4 @@
-import { getDatabase, ref, onValue, update, off} from "firebase/database";
+import { getDatabase, update, ref, set} from "firebase/database";
 import {initializeApp} from 'firebase/app'
 import {firebaseConfig} from './firebaseConfig';
 
