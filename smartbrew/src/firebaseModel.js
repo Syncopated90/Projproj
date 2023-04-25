@@ -25,6 +25,7 @@ export function readUserData(userId){
   
   //return brewingStatus;
 }
+
 function writeWaterLevel(userId, waterLevelValue) {
   const app = initializeApp(firebaseConfig);
   const db = getDatabase(app);
@@ -32,6 +33,17 @@ function writeWaterLevel(userId, waterLevelValue) {
   update(ref(db, 'users/' + userId), {
     waterLevel: waterLevelValue
   });
+}
+
+export function readWaterLevel(userId){
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+  const waterLevel = ref(db, 'users/' + userId);
+  off(waterLevel)
+  onValue(waterLevel, (snapshot) => {
+    const data = snapshot.val();
+    console.log(data.waterLevel);
+  })
 }
 
 export {writeWaterLevel}
