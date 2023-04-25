@@ -1,7 +1,7 @@
 import '../css/App.css';
 import StartPresenter from '../presenters/startPresenter';
 import WaterLevel from '../presenters/waterLevelPresenter';
-import writeUserData, {readUserData} from '../firebaseModel';
+import {readUserData} from '../firebaseModel';
 
 function App() {
   readUserData("fredrik2")
