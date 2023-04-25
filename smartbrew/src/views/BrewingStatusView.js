@@ -6,7 +6,7 @@ function NotBrewView(){
 
 function BrewView(){
   return <div className = "App">
-    Coffee is brewing! HEllo Serdar!
+    Coffee is brewing!
   </div>
 }
 
