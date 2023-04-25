@@ -1,5 +1,5 @@
 import '../css/App.css';
-import StartPresenter from '../presenters/StartPresenter';
+import StartPresenter from '../presenters/startPresenter';
 import WaterLevel from '../presenters/waterLevelPresenter';
 
 function App() {
