@@ -1,10 +1,10 @@
-import StartView from '../views/StartView';
+import StartView from '../views/startView';
 import {NotBrewView, BrewView} from '../views/BrewingStatusView';
 import React, {useState, useEffect} from 'react'
 import writeUserData, {readUserData} from '../firebaseModel';
-import { getDatabase, ref, onValue, update, off} from "firebase/database";
-import {initializeApp} from 'firebase/app'
-import {firebaseConfig} from '../firebaseConfig';
+import StartView from '../views/startView';
+import React, {useState} from 'react'
+import writeUserData from '../firebaseModel';
 function StartPresenter(){
   const [brewState, setBrewState] = useState(false);
   

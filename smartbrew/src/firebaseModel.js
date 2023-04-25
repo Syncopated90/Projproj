@@ -25,3 +25,13 @@ export function readUserData(userId){
   
   //return brewingStatus;
 }
+function writeWaterLevel(userId, waterLevelValue) {
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+
+  update(ref(db, 'users/' + userId), {
+    waterLevel: waterLevelValue
+  });
+}
+
+export {writeWaterLevel}
