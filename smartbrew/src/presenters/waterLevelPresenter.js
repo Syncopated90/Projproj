@@ -6,13 +6,15 @@ export default function WaterLevel(){
     const [waterLevelState, setWaterLevelState] = useState(0);
 
     const clickedOnIncrementHandler = () =>{
-        setWaterLevelState(waterLevelState + 1)
-        writeWaterLevel("fredrik", waterLevelState + 1) 
+        const newWaterLevel = waterLevelState + 1
+        setWaterLevelState(newWaterLevel)
+        writeWaterLevel("fredrik", newWaterLevel) 
     }
 
     const clickedOnDecrementHandler = () =>{
-        setWaterLevelState(waterLevelState - 1)
-        writeWaterLevel("fredrik", waterLevelState - 1)
+        const newWaterLevel = waterLevelState - 1 
+        setWaterLevelState(newWaterLevel)
+        writeWaterLevel("fredrik", newWaterLevel)
     }
 
     return (
