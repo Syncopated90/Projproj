@@ -1,5 +1,5 @@
-import StartView from '../views/StartView';
-import {NotBrewView, BrewView} from '../views/BrewingStatusView';
+import StartView from '../views/startView';
+import {NotBrewView, BrewView} from '../views/brewingStatusView';
 import React, {useState} from 'react'
 import writeUserData from '../firebaseModel';
 function StartPresenter(){
