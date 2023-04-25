@@ -1,8 +1,5 @@
 import StartView from '../views/startView';
-import {NotBrewView, BrewView} from '../views/BrewingStatusView';
-import React, {useState, useEffect} from 'react'
-import writeUserData, {readUserData} from '../firebaseModel';
-import StartView from '../views/startView';
+import {NotBrewView, BrewView} from '../views/brewingStatusView';
 import React, {useState} from 'react'
 import writeUserData from '../firebaseModel';
 function StartPresenter(){
