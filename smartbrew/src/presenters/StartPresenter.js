@@ -8,7 +8,7 @@ import {firebaseConfig} from '../firebaseConfig';
 function StartPresenter(){
   const [brewState, setBrewState] = useState(false);
   
-  //useEffect(() => {})
+  //useEffect(() => {readUserData("fredrik")}, [brewState])
   function brewStateACB(boolean){
     writeUserData("fredrik", boolean)
     setBrewState(boolean)

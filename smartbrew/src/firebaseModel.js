@@ -18,7 +18,7 @@ export function readUserData(userId){
   off(brewingStatus)
   onValue(brewingStatus, (snapshot) => {
     const data = snapshot.val();
-    console.log('hello');
+    console.log(data.power);
     //return data; data.brewingstatus
     //debugger
   })
