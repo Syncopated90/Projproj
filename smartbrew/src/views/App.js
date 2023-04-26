@@ -4,7 +4,7 @@ import WaterLevel from '../presenters/waterLevelPresenter';
 import writeUserData, {readUserData} from '../firebaseModel';
 
 function App() {
-  readUserData("fredrik")
+  readUserData("fredrik2")
   return (
     <div>
       <StartPresenter/>
