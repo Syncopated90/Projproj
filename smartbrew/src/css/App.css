@@ -4,3 +4,62 @@
 .sign-to-your-account {
   font-size: 24px;
 }
+.login-labels {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0.5rem; /* assuming 1rem = 16px, py-2 = 32px/16px = 2rem */
+  padding-bottom: 0.5rem; /* assuming 1rem = 16px, py-2 = 32px/16px = 2rem */
+}
+.login-labels-text {
+  padding-top: 0.5rem; /* assuming 1rem = 16px, py-2 = 32px/16px = 2rem */
+  padding-bottom: 0.5rem; /* assuming 1rem = 16px, py-2 = 32px/16px = 2rem */
+  font-weight: 500; /* assuming "font-medium" means "semi-bold" */
+}
+.borderp3 {
+  border: 1px solid #000; /* assuming black border color */
+  padding: 1.5rem;
+  width: 25%;
+}
+/*
+button {
+  border: 1px solid #3b82f6;
+  background-color: #2563eb;
+  color: #fff;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem; 
+  width: 29%;
+}
+button:focus,
+button:hover {
+  background-color: #3b82f6; 
+}*/
+.button-1 {
+  border: 1px solid #3b82f6;
+  background-color: #2563eb;
+  color: #fff;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem; 
+  width: 29%;
+}
+.button-1:focus,
+.button-1:hover {
+  background-color: #3b82f6; 
+}
+
+.account-div {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 16px;
+  padding: 4px;
+}
+.account-title {
+  font-size: 2.1rem;
+  font-weight: bold;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
