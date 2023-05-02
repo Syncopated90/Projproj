@@ -39,7 +39,10 @@ def water_level_handler(database, stop_event):
        distance = x.basic_distance(trig, echo)
        print("{}".format(distance))
        database.child("users").child("fredrik").update({"waterLevel": distance})
-       time.sleep(4)
+       if distance > 8.5:
+             GPIO.output(14, GPIO.LOW)   
+             print(GPIO.output(14))        
+       time.sleep(2)
          
 def main():
     """Main function, program starts and runs here."""
