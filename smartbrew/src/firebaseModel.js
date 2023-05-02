@@ -1,6 +1,7 @@
 import { getDatabase, update, ref, onValue, off} from "firebase/database";
 import {initializeApp} from 'firebase/app'
 import {firebaseConfig} from './firebaseConfig';
+import {getAuth} from 'firebase/auth';
 
 
 export default function writeUserData(userId, boolean) {
@@ -47,5 +48,6 @@ function readWaterLevel(userId, setWaterLevelState){
     console.log(data.waterLevel);
   })
 }
-
+const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
 export {writeWaterLevel, readWaterLevel}
