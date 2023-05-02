@@ -3,6 +3,7 @@ import {initializeApp} from 'firebase/app'
 import {firebaseConfig} from './firebaseConfig';
 import {getAuth} from 'firebase/auth';
 
+
 export default function writeUserData(userId, boolean) {
   const app = initializeApp(firebaseConfig);
   const db = getDatabase(app);
@@ -36,18 +37,17 @@ function writeWaterLevel(userId, waterLevelValue) {
   });
 }
 
-export function readWaterLevel(userId){
+function readWaterLevel(userId, setWaterLevelState){
   const app = initializeApp(firebaseConfig);
   const db = getDatabase(app);
   const waterLevel = ref(db, 'users/' + userId);
   off(waterLevel)
   onValue(waterLevel, (snapshot) => {
     const data = snapshot.val();
+    setWaterLevelState(data.waterLevel)
     console.log(data.waterLevel);
   })
 }
-
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-
-export {writeWaterLevel}
+export {writeWaterLevel, readWaterLevel}

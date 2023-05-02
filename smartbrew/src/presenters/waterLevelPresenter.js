@@ -1,9 +1,13 @@
 import WaterLevelView from "../views/waterLevelView";
-import React, {useState} from 'react'
-import {writeWaterLevel} from '../firebaseModel';
+import React, {useState, useEffect} from 'react'
+import {writeWaterLevel, readWaterLevel} from '../firebaseModel';
 
 export default function WaterLevel(){
     const [waterLevelState, setWaterLevelState] = useState(0);
+
+    useEffect(() => {
+        readWaterLevel("fredrik", setWaterLevelState);
+    }, [])
 
     const clickedOnIncrementHandler = () =>{
         const newWaterLevel = waterLevelState + 1
