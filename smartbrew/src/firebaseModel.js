@@ -12,7 +12,6 @@ export default function writeUserData(userId, boolean) {
     brewingstatus: boolean
   });
 }
-
 export function readUserData(userId){
   const app = initializeApp(firebaseConfig);
   const db = getDatabase(app);

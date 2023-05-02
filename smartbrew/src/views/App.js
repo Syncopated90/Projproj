@@ -11,8 +11,6 @@ import { AuthContextProvider } from "../context/AuthContext";
 import ProtectedRoute from "../components/ProtectedRoute";
 
 function App() {
-  readUserData("fredrik");
-  readWaterLevel("fredrik");
   return (
     <div className="App">
       <div>

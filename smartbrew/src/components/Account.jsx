@@ -3,11 +3,12 @@ import { useNavigate } from "react-router-dom";
 import StartPresenter from "../presenters/startPresenter";
 import WaterLevel from "../presenters/waterLevelPresenter";
 import { UserAuth } from "../context/AuthContext";
+import { readUserData, readWaterLevel } from "../firebaseModel";  
 
 const Account = () => {
   const { user, logout } = UserAuth();
   const navigate = useNavigate();
-
+  readUserData("fredrik2");
   const handleLogout = async () => {
     try {
       await logout();

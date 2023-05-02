@@ -51,7 +51,7 @@ const Signin = () => {
             type="password"
           ></input>
         </div>
-        <button class="button-1">Sign In</button>
+        <button className="button-1">Sign In</button>
       </form>
     </div>
   );

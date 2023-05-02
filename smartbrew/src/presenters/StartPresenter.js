@@ -7,7 +7,7 @@ function StartPresenter(){
   
   //useEffect(() => {readUserData("fredrik")}, [brewState])
   function brewStateACB(boolean){
-    writeUserData("fredrik", boolean)
+    writeUserData("fredrik2", boolean)
     setBrewState(boolean)
   }
   return (<>
