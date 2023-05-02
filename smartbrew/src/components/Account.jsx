@@ -8,7 +8,7 @@ import { readUserData, readWaterLevel } from "../firebaseModel";
 const Account = () => {
   const { user, logout } = UserAuth();
   const navigate = useNavigate();
-  readUserData("fredrik2");
+  
   const handleLogout = async () => {
     try {
       await logout();
