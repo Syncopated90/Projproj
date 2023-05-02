@@ -1,7 +1,4 @@
 import "../css/App.css";
-import StartPresenter from "../presenters/startPresenter";
-import WaterLevel from "../presenters/waterLevelPresenter";
-import { readUserData, readWaterLevel } from "../firebaseModel";
 import { Route, Routes } from "react-router-dom";
 import React from "react";
 import Account from "../components/Account";

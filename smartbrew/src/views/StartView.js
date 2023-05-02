@@ -1,13 +1,17 @@
-function StartView(props){
+function StartBrew(props){
   return <div className="App">
-  <h1>SmartBrew coffee</h1>
   <button onClick = {() => props.setBrewingStatus(true)}>
-    Start brewing coffee
+    Turn on
   </button>
-  <button onClick = {() => props.setBrewingStatus(false)}>
-    Stop brewing coffee
-  </button>
-</div>
+  </div>
 }
 
-export default StartView;
+function StopBrew(props){
+  return <div className="App">
+  <button onClick = {() => props.setBrewingStatus(false)}>
+    Turn off
+  </button>
+  </div>
+}
+
+export {StopBrew, StartBrew}
