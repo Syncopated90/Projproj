@@ -1,12 +1,16 @@
 import {StopBrew, StartBrew} from '../views/startView';
 import {NotBrewView, BrewView} from '../views/brewingStatusView';
-import React, {useState} from 'react'
-import writeUserData from '../firebaseModel';
+import React, {useState, useEffect} from 'react'
+import writeUserData, { readUserData } from '../firebaseModel';
 function StartPresenter(){
   const [brewState, setBrewState] = useState(false);
-  
+
+  useEffect(() => {
+    readUserData("fredrik", setBrewState);
+  }, [])
+
   function brewStateACB(boolean){
-    writeUserData("fredrik2", boolean)
+    writeUserData("fredrik", boolean)
     setBrewState(!brewState)
   }
   // <StartView setBrewingStatus = {brewStateACB}/>
