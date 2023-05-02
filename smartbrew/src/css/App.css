@@ -1,3 +1,6 @@
+body {
+  background-color: #e5e1cf;
+}
 .App {
   text-align: center;
 }
@@ -22,20 +25,6 @@
   padding: 1.5rem;
   width: 25%;
 }
-/*
-button {
-  border: 1px solid #3b82f6;
-  background-color: #2563eb;
-  color: #fff;
-  padding: 1rem;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem; 
-  width: 29%;
-}
-button:focus,
-button:hover {
-  background-color: #3b82f6; 
-}*/
 .button-1 {
   border: 1px solid #3b82f6;
   background-color: #2563eb;

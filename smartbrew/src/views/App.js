@@ -8,20 +8,29 @@ import Account from "../components/Account";
 import Signin from "../components/Signin";
 import Signup from "../components/Signup";
 import { AuthContextProvider } from "../context/AuthContext";
+import ProtectedRoute from "../components/ProtectedRoute";
 
 function App() {
   readUserData("fredrik");
   readWaterLevel("fredrik");
   return (
     <div className="App">
-      {/*<StartPresenter/>
-      <WaterLevel/>*/}
-      <h1 className="text-center text-3x1 font-bold">SmartBrew Login Page</h1>
+      <div>
+        <h1 className="text-center text-3x1 font-bold">SmartBrew</h1>
+        <strong>An internet connected coffee machine</strong>
+      </div>
       <AuthContextProvider>
         <Routes>
           <Route path="/" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/account" element={<Account />} />
+          <Route
+            path="/account"
+            element={
+              <ProtectedRoute>
+                <Account />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </AuthContextProvider>
     </div>
