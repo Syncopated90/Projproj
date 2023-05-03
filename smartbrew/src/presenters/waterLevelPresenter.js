@@ -4,6 +4,7 @@ import {writeWaterLevel, readWaterLevel} from '../firebaseModel';
 
 export default function WaterLevel(){
     const [waterLevelState, setWaterLevelState] = useState(0);
+    console.log("Waterlevelstate:"+waterLevelState);
 
     useEffect(() => {
         readWaterLevel("fredrik", setWaterLevelState);
