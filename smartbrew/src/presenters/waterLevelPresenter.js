@@ -10,7 +10,7 @@ export default function WaterLevel({setWaterLevel}){
     audio.volume = 0.1
 
     useEffect(() => {
-        readWaterLevel("fredrik3", setWaterLevelState, setWaterLevel);
+        readWaterLevel("fredrik", setWaterLevelState, setWaterLevel);
         setWaterLevel(waterLevelState);
     }, [])
 
@@ -25,14 +25,14 @@ export default function WaterLevel({setWaterLevel}){
     const clickedOnIncrementHandler = () =>{
         const newWaterLevel = waterLevelState + 1
         setWaterLevelState(newWaterLevel)
-        writeWaterLevel("fredrik3", newWaterLevel) 
+        writeWaterLevel("fredrik", newWaterLevel) 
         setWaterLevel(newWaterLevel);
     }
 
     const clickedOnDecrementHandler = () =>{
         const newWaterLevel = waterLevelState - 1 
         setWaterLevelState(newWaterLevel)
-        writeWaterLevel("fredrik3", newWaterLevel)
+        writeWaterLevel("fredrik", newWaterLevel)
         setWaterLevel(newWaterLevel);
     }
 
