@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import Timer from "../views/timer";
 import StartPresenter from "../presenters/startPresenter";
 import WaterLevel from "../presenters/waterLevelPresenter";
 import { UserAuth } from "../context/AuthContext";
@@ -26,6 +27,7 @@ const Account = () => {
 
       <StartPresenter />
       <WaterLevel />
+      <Timer />
 
       <button onClick={handleLogout} class="button-2">
         Logout
