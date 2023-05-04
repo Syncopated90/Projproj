@@ -12,15 +12,14 @@ export default function writeUserData(userId, boolean) {
     brewingstatus: boolean
   });
 }
-export function readUserData(userId){
+function readBrewStatus(userId, setBrewStatus){
   const app = initializeApp(firebaseConfig);
   const db = getDatabase(app);
-  const brewingStatus = ref(db, 'users/' + userId);
+  const brewingStatus = ref(db, 'users/' + userId + '/brewingstatus');
   off(brewingStatus)
   onValue(brewingStatus, (snapshot) => {
     const data = snapshot.val();
-    //return data; data.brewingstatus
-    //debugger
+    setBrewStatus(data.brewingstatus);
   })
   
   //return brewingStatus;
@@ -35,16 +34,17 @@ function writeWaterLevel(userId, waterLevelValue) {
   });
 }
 
-function readWaterLevel(userId, setWaterLevelState){
+function readWaterLevel(userId, setWaterLevelState, setWaterLevel){
   const app = initializeApp(firebaseConfig);
   const db = getDatabase(app);
   const waterLevel = ref(db, 'users/' + userId);
-  off(waterLevel)
+  //off(waterLevel)
   onValue(waterLevel, (snapshot) => {
     const data = snapshot.val();
     console.log("Firebase data:", data); // Add this line
     setWaterLevelState(data.waterLevel)
-    console.log("Firebase: "+data.waterLevel);
+    setWaterLevel(data.waterLevel)
+    //console.log(data.waterLevel);
   })
 }
 function readWaterLevel2(userId, setWaterLevelState){
@@ -73,4 +73,4 @@ function readWaterLevel3(userId, setWaterLevelState){
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-export {writeWaterLevel, readWaterLevel, readWaterLevel2, readWaterLevel3}
+export {writeWaterLevel, readWaterLevel, readWaterLevel2, readWaterLevel3, readBrewStatus}
