@@ -1,18 +1,25 @@
+import "../css/App.css";
 import WaterLevelView from "../views/waterLevelView";
 import React, { useState, useEffect } from "react";
-import { writeWaterLevel, readWaterLevel3 } from "../firebaseModel";
+import { writeWaterLevel, readWaterLevel } from "../firebaseModel";
 
 export const minimumValuetoWaterlevel = 8;
 
 function StartBrew(props) {
-  const [waterLevelState, setWaterLevelState] = useState(null);
+  const [waterLevelState, setWaterLevelState] = useState(props.waterLevel);
   const [brewState, setBrewState] = useState();
 
-  useEffect(() => {
+  {
+    /*useEffect(() => {
     readWaterLevel3("fredrik", (value) => {
       console.log("Water level from Firebase:", value);
       setWaterLevelState(value);
     });
+  }, []);*/
+  }
+
+  useEffect(() => {
+    readWaterLevel("fredrik", setWaterLevelState);
   }, []);
 
   const minimumValuetoWaterlevel = 8;
@@ -22,10 +29,13 @@ function StartBrew(props) {
 
   return (
     <div className="App">
-        <h2>Water Level: {waterLevelState !== null ? waterLevelState + "%" : ""}</h2>
       <button
+        class="button-39"
+        role="button"
         disabled={
-          waterLevelState !== null && waterLevelState < minimumValuetoWaterlevel && !brewState
+          waterLevelState !== null &&
+          waterLevelState < minimumValuetoWaterlevel &&
+          !brewState
         }
         onClick={() => props.setBrewingStatus(true)}
       >
@@ -38,7 +48,13 @@ function StartBrew(props) {
 function StopBrew(props) {
   return (
     <div className="App">
-      <button onClick={() => props.setBrewingStatus(false)}>Turn off</button>
+      <button
+        class="button-39"
+        role="button"
+        onClick={() => props.setBrewingStatus(false)}
+      >
+        Turn off
+      </button>
     </div>
   );
 }

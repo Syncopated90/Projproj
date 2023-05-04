@@ -34,8 +34,17 @@ function NotBrewView(props) {
   return (
     <>
       <div className="App">Coffee is not brewing</div>
-      <p>Status: {text}</p>
-      <p>Water level: {waterLevelState}</p>
+      <div className="status">
+        <p>Status: {text}</p>
+        {waterLevelState !== null &&
+        waterLevelState < minimumValuetoWaterlevel ? (
+          <span className="status-icon red"></span>
+        ) : (
+          <span className="status-icon green"></span>
+        )}
+      </div>
+      {/*<p>Status: {text}</p>
+      <p>Water level: {waterLevelState}</p>*/}
     </>
   );
 }

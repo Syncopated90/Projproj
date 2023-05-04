@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <div className="title-bar">
-        <h1 className="text-center text-3x1 font-bold">SmartBrew</h1>
+        <h1 className="front-text">SmartBrew</h1>
         <strong>An internet connected coffee machine</strong>
       </div>
       <AuthContextProvider>
