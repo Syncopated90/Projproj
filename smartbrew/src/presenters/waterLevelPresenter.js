@@ -10,13 +10,13 @@ export default function WaterLevel({setWaterLevel}){
     audio.volume = 0.1
 
     useEffect(() => {
-        readWaterLevel("fredrik", setWaterLevelState, setWaterLevel);
+        readWaterLevel("fredrik3", setWaterLevelState, setWaterLevel);
         setWaterLevel(waterLevelState);
     }, [])
 
     useEffect(() => {
         if (hasMounted && waterLevelState === 0) {
-            console.log("hello, " + "mounted?: " + hasMounted + ", waterlevel?: " + waterLevelState )
+            console.log("hello, mounted?: " + hasMounted + ", waterlevel?: " + waterLevelState )
             audio.play()
         }
         setHasMounted(true)
@@ -25,14 +25,14 @@ export default function WaterLevel({setWaterLevel}){
     const clickedOnIncrementHandler = () =>{
         const newWaterLevel = waterLevelState + 1
         setWaterLevelState(newWaterLevel)
-        writeWaterLevel("fredrik", newWaterLevel) 
+        writeWaterLevel("fredrik3", newWaterLevel) 
         setWaterLevel(newWaterLevel);
     }
 
     const clickedOnDecrementHandler = () =>{
         const newWaterLevel = waterLevelState - 1 
         setWaterLevelState(newWaterLevel)
-        writeWaterLevel("fredrik", newWaterLevel)
+        writeWaterLevel("fredrik3", newWaterLevel)
         setWaterLevel(newWaterLevel);
     }
 

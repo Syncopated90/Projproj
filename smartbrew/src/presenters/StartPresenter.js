@@ -10,7 +10,7 @@ function StartPresenter(){
   audio.volume = 0.5
 
   useEffect(() => {
-    readBrewStatus("fredrik", setBrewStatus);
+    readBrewStatus("fredrik3", setBrewStatus);
 }, [])
 
   useEffect(() => {
@@ -20,7 +20,7 @@ function StartPresenter(){
 }, [brewState])
 
   function brewStateACB(boolean){
-    writeUserData("fredrik", boolean)
+    writeUserData("fredrik3", boolean)
     setBrewState(!brewState)
   }
   const setBrewStatus = (state) => {setBrewState(state);}
