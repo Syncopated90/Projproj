@@ -12,14 +12,14 @@ export default function writeUserData(userId, boolean) {
     brewingstatus: boolean
   });
 }
-function readBrewStatus(userId, setBrewStatus){
+function readBrewStatus(props){
   const app = initializeApp(firebaseConfig);
   const db = getDatabase(app);
-  const brewingStatus = ref(db, 'users/' + userId + '/brewingstatus');
+  const brewingStatus = ref(db, 'users/' + props.userId + '/brewingstatus');
   off(brewingStatus)
   onValue(brewingStatus, (snapshot) => {
     const data = snapshot.val();
-    setBrewStatus(data.brewingstatus);
+    //props.setBrewStatus(data.brewingstatus);
   })
   
   //return brewingStatus;
@@ -34,16 +34,16 @@ function writeWaterLevel(userId, waterLevelValue) {
   });
 }
 
-function readWaterLevel(userId, setWaterLevelState, setWaterLevel){
+function readWaterLevel(props){
   const app = initializeApp(firebaseConfig);
   const db = getDatabase(app);
-  const waterLevel = ref(db, 'users/' + userId);
+  const waterLevel = ref(db, 'users/' + props.userId);
   //off(waterLevel)
   onValue(waterLevel, (snapshot) => {
     const data = snapshot.val();
     console.log("Firebase data:", data); // Add this line
-    setWaterLevelState(data.waterLevel)
-    setWaterLevel(data.waterLevel)
+    //props.setWaterLevelState(data.waterLevel)
+    //props.setWaterLevel(data.waterLevel)
     //console.log(data.waterLevel);
   })
 }
