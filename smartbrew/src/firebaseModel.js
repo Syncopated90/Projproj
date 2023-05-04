@@ -41,6 +41,10 @@ function readWaterLevel(props){
   //off(waterLevel)
   onValue(waterLevel, (snapshot) => {
     const data = snapshot.val();
+    console.log("Firebase data:", data); // Add this line
+    //props.setWaterLevelState(data.waterLevel)
+    //props.setWaterLevel(data.waterLevel)
+    //console.log(data.waterLevel);
   })
 }
 {/* Waterlevel from firebase used for status */}

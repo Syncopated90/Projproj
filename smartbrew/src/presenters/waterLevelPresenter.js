@@ -1,11 +1,7 @@
 import WaterLevelView from "../views/waterLevelView";
-import React, { useState, useEffect } from "react";
-import {
-  writeWaterLevel,
-  readWaterLevel,
-  readWaterLevel2,
-} from "../firebaseModel";
-import sound from "../sounds/sound.mp3";
+import React, {useState, useEffect} from 'react'
+import {writeWaterLevel, readWaterLevel, readWaterLevel2} from '../firebaseModel';
+import sound from '../sounds/sound.mp3'
 
 export default function WaterLevel(props){
     const [waterLevelState, setWaterLevelState] = useState(0);

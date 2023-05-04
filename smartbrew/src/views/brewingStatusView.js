@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { readWaterLevel2 } from "../firebaseModel";
-import { StopBrew, StartBrew, minimumValuetoWaterlevel } from "./startView";
+import { writeWaterLevel, readWaterLevel2 } from "../firebaseModel";
+import {
+  StopBrew,
+  StartBrew,
+  minimumValuetoWaterlevel,
+} from "./startView";
 
 function NotBrewView(props) {
   const [brewState, setBrewState] = useState();
