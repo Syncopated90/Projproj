@@ -4,7 +4,7 @@ import {
   StopBrew,
   StartBrew,
   minimumValuetoWaterlevel,
-} from "../views/startView";
+} from "./startView";
 
 function NotBrewView(props) {
   const [brewState, setBrewState] = useState();
