@@ -1,31 +1,32 @@
 import "../css/App.css";
 import WaterLevelView from "../views/waterLevelView";
 import React, { useState, useEffect } from "react";
-import { writeWaterLevel, readWaterLevel } from "../firebaseModel";
+import { writeWaterLevel, readWaterLevel2 } from "../firebaseModel";
 
 export const minimumValuetoWaterlevel = 8;
 
 function StartBrew(props) {
-  const [waterLevelState, setWaterLevelState] = useState(props.waterLevel);
+  const [waterLevelState, setWaterLevelState] = useState(null);
   const [brewState, setBrewState] = useState();
 
-  {
-    /*useEffect(() => {
-    readWaterLevel3("fredrik", (value) => {
+  useEffect(() => {
+    readWaterLevel2("fredrik", (value) => {
       console.log("Water level from Firebase:", value);
       setWaterLevelState(value);
     });
-  }, []);*/
-  }
-
-  useEffect(() => {
+  }, []);
+  {/*useEffect(() => {
     readWaterLevel("fredrik", setWaterLevelState);
   }, []);
 
+  useEffect(() => {
+    setWaterLevelState(props.waterLevel);
+  }, [props.waterLevel]);*/}
+
   const minimumValuetoWaterlevel = 8;
 
-  console.log("Minimum value to water level:", minimumValuetoWaterlevel);
-  console.log("Water level state:", waterLevelState);
+  /*console.log("Minimum value to water level:", minimumValuetoWaterlevel);
+  console.log("Water level state:", waterLevelState);*/
 
   return (
     <div className="App">
