@@ -1,150 +1,76 @@
-import React, { useState, useRef, useEffect } from 'react'
-  
+import React, { useState, useEffect } from 'react';
 
-  
-const Timer = () => {
+function Timer() {
+  const [minutes, setMinutes] = useState(10);
+  const [seconds, setSeconds] = useState(0);
+  const [timeRemaining, setTimeRemaining] = useState(minutes * 60 + seconds);
+  const [timerRunning, setTimerRunning] = useState(false);
 
-    const [seconds, setSeconds] = useState('');
-    const [minutes, setMinutes] = useState('');
-    const [hours, setHours] = useState('');
-
-
-    // We need ref in this, because we are dealing
-    // with JS setInterval to keep track of it and
-    // stop it when needed
-    const Ref = useRef(null);
-  
-    // The state for our timer
-    const [timer, setTimer] = useState('00:00:00');
-
-  
-  
-    const getTimeRemaining = (e) => {
-        const total = Date.parse(e) - Date.parse(new Date());
-        const seconds = Math.floor((total / 1000) % 60);
-        const minutes = Math.floor((total / 1000 / 60) % 60);
-        const hours = Math.floor((total / 1000 / 60 / 60) % 24);
-        return {
-            total, hours, minutes, seconds
-        };
-    }
-  
-  
-    const startTimer = (e) => {
-        let { total, hours, minutes, seconds } 
-                    = getTimeRemaining(e);
-        if (total >= 0) {
-  
-            // update the timer
-            // check if less than 10 then we need to 
-            // add '0' at the beginning of the variable
-            setTimer(
-                (hours > 9 ? hours : '0' + hours) + ':' +
-                (minutes > 9 ? minutes : '0' + minutes) + ':'
-                + (seconds > 9 ? seconds : '0' + seconds)
-            )
+  useEffect(() => {
+    if (timerRunning) {
+      const timer = setInterval(() => {
+        if (timeRemaining > 0) {
+          setTimeRemaining(timeRemaining - 1);
+        } else {
+          setTimerRunning(false);
+          clearInterval(timer);
         }
+      }, 1000);
+      return () => clearInterval(timer);
     }
-  
-  
-    const clearTimer = (e) => {
-  
-        // If you adjust it you should also need to
-        // adjust the Endtime formula we are about
-        // to code next    
-        // setTimer('00:00:00');
-        console.log("HEEEJ")
-        // If you try to remove this line the 
-        // updating of timer Variable will be
-        // after 1000ms or 1sec
-        if (Ref.current) clearInterval(Ref.current);
-        const id = setInterval(() => {
-            startTimer(e);
-        }, 1000)
-        Ref.current = id;
+  }, [timerRunning, timeRemaining]);
+
+  const handleResetTimer = () => {
+    setTimeRemaining(minutes * 60 + seconds);
+    setTimerRunning(false);
+  };
+
+  const handleStartStopTimer = () => {
+    setTimerRunning(!timerRunning);
+  };
+
+  const handleMinutesChange = (e) => {
+    const value = parseInt(e.target.value);
+    if (!isNaN(value) && value >= 0 && value <= 60) {
+      setMinutes(value);
+      setTimeRemaining(value * 60 + seconds);
     }
-  
-    const getDeadTime = () => {
-        let deadline = new Date();
-        let totalTime = calculateSeconds()
-        // This is where you need to adjust if 
-        // you entend to add more time
-        deadline.setSeconds(deadline.getSeconds() + totalTime );
-        return deadline;
+  };
+
+  const handleSecondsChange = (e) => {
+    const value = parseInt(e.target.value);
+    if (!isNaN(value) && value >= 0 && value <= 60) {
+      setSeconds(value);
+      setTimeRemaining(minutes * 60 + value);
     }
-  
-    // We can use useEffect so that when the component
-    // mount the timer will start as soon as possible
-  
-    // We put empty array to act as componentDid
-    // mount only
-    /* useEffect(() => {
-        clearTimer(getDeadTime());
-    }, []); */
-  
-    // Another way to call the clearTimer() to start
-    // the countdown is via action event from the
-    // button first we create function to be called
-    // by the button
+  };
 
-    const onClickReset = () => {
-        clearTimer(getDeadTime());
-    }
+  const formatTime = (time) => {
+    let minutes = Math.floor(time / 60);
+    let seconds = time % 60;
+    return `${minutes.toString().padStart(2, '0')}:${seconds
+      .toString()
+      .padStart(2, '0')}`;
+  };
 
-    function handleSeconds(e){
-        setSeconds(e.target.value)
-    }
-
-    function handleMinutes(e){
-        setMinutes(e.target.value)
-    }
-
-    function handleHours(e){
-        setHours(e.target.value)
-    }
-    function applyValues(e){
-        
-        setTimer(
-            (hours > 9 ? hours : (hours === '' ? '00' : '0' + hours)) + ':' +
-            (minutes > 9 ? minutes : (minutes === '' ? '00' : '0' + minutes)) + ':' +
-            (seconds > 9 ? seconds : (seconds === '' ? '00' : '0' + seconds))
-        )
-
-    
-    }
-  
-    function calculateSeconds(){
-
-            
-        
-
-        console.log(
-
-        (isNaN(parseInt(hours)) ? 0 : parseInt(hours)*3600) + 
-        (isNaN(parseInt(minutes)) ? 0 : parseInt(minutes)*60) +
-        (isNaN(parseInt(seconds)) ? 0 : parseInt(seconds))
-        
-        )
-            
-            
-    
-        
-        
-
-        return ((hours * 3600) + (minutes * 60) + seconds)
-    }
-    //<button onClick={onClickReset}>Reset</button>
-    return (
-        <div className="timer">
-            <h2>{timer}</h2>
-            <button onClick={applyValues}>Set timer</button>
-            <button onClick={onClickReset}>Start</button>
-            <input type="text" placeholder="Hour" value={hours} onChange={handleHours}></input>
-            <input type="text" placeholder="Minutes" value={minutes} onChange={handleMinutes}></input>
-            <input type="text" placeholder="Seconds" value={seconds} onChange={handleSeconds}></input>
-        </div>
-    )
-    
+  return (
+    <div>
+    <div>{formatTime(timeRemaining)}</div>
+      <label> 
+        Minutes: <input type="number" text={isNaN(minutes) ? '' : minutes} min="0" max="60" onChange={handleMinutesChange}/>
+      </label>
+      <label>
+        Seconds:
+        <input type="number" text={isNaN(seconds) ? '' : seconds} min="0" max="60" onChange={handleSecondsChange}/>
+      </label>
+      {timerRunning ? (
+        <button onClick={handleStartStopTimer}>Stop</button>
+      ) : (
+        <button onClick={handleStartStopTimer}>Start</button>
+      )}
+      <button onClick={handleResetTimer}>Reset</button>
+    </div>
+  );
 }
-  
+
 export default Timer;
