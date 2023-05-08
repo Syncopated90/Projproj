@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { writeWaterLevel, readWaterLevel2 } from "../firebaseModel";
 import {
-  StopBrew,
-  StartBrew,
-  minimumValuetoWaterlevel,
-} from "./startView";
+  writeWaterLevel,
+  readWaterLevel2,
+  readWaterLevel,
+} from "../firebaseModel";
+import { StopBrew, StartBrew, minimumValuetoWaterlevel } from "./startView";
 
 function NotBrewView(props) {
   const [brewState, setBrewState] = useState();
@@ -28,7 +28,7 @@ function NotBrewView(props) {
         ? "Coffee machine needs refill"
         : "Your coffee machine is ready to brew";
   } else {
-    text = "Nogo";
+    text = "Error loading the waterlevel";
   }
 
   return (
@@ -43,8 +43,6 @@ function NotBrewView(props) {
           <span className="status-icon green"></span>
         )}
       </div>
-      {/*<p>Status: {text}</p>
-      <p>Water level: {waterLevelState}</p>*/}
     </>
   );
 }
