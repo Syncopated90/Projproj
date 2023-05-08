@@ -1,14 +1,14 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import StartPresenter from "../presenters/startPresenter";
 import WaterLevel from "../presenters/waterLevelPresenter";
-import CircleLoaderPresenter from '../presenters/circleLoaderPresenter'
-import CircleLoader from '../views/circleLoader';
+import CircleLoaderPresenter from "../presenters/circleLoaderPresenter";
+import CircleLoader from "../views/circleLoader";
 import { UserAuth } from "../context/AuthContext";
 import { readBrewStatus, readWaterLevel } from "../firebaseModel";
 
 const Account = () => {
-  const[water, setWater] = useState(45);
+  const [water, setWater] = useState(45);
   const { user, logout } = UserAuth();
   const navigate = useNavigate();
   readBrewStatus("fredrik2");
@@ -39,8 +39,8 @@ const Account = () => {
       </p>
 
       <StartPresenter />
-      <WaterLevel setWaterLevel={setWater}/>
-      <CircleLoader waterLevel={water}/>
+      <WaterLevel setWaterLevel={setWater} />
+      {/*<CircleLoader waterLevel={water} />*/}
       <button onClick={handleLogout} className="button-2">
         Logout
       </button>
