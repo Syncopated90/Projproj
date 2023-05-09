@@ -41,22 +41,9 @@ function readWaterLevel(props){
   //off(waterLevel)
   onValue(waterLevel, (snapshot) => {
     const data = snapshot.val();
-    {/*console.log("Firebase data:", data); // Add this line*/}
-    //props.setWaterLevelState(data.waterLevel)
-    //props.setWaterLevel(data.waterLevel)
-    //console.log(data.waterLevel);
   })
 }
-{/*function readWaterLevel2(userId, setWaterLevelState){
-  const app = initializeApp(firebaseConfig);
-  const db = getDatabase(app);
-  const waterLevel = ref(db, 'users/' + userId + '/waterLevel'); // access 'waterLevel' field under 'users'
-  off(waterLevel)
-  onValue(waterLevel, (snapshot) => {
-    const data = snapshot.val();
-    setWaterLevelState(data) // pass the entire data object as 'waterLevelState'
-  })
-}*/}
+{/* Waterlevel from firebase used for status */}
 function readWaterLevel2(userId, setWaterLevelState) {
   const app = initializeApp(firebaseConfig);
   const db = getDatabase(app);
