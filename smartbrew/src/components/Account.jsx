@@ -1,18 +1,18 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Timer from "../views/timer";
 import StartPresenter from "../presenters/startPresenter";
 import WaterLevel from "../presenters/waterLevelPresenter";
-import CircleLoaderPresenter from '../presenters/circleLoaderPresenter'
-import CircleLoader from '../views/circleLoader';
+import CircleLoaderPresenter from "../presenters/circleLoaderPresenter";
+import CircleLoader from "../views/circleLoader";
 import { UserAuth } from "../context/AuthContext";
-import { readUserData, readWaterLevel } from "../firebaseModel";
+import { readBrewStatus, readWaterLevel } from "../firebaseModel";
 
-const Account = () => {
-  const[water, setWater] = useState(45);
+export default function Account (){
+  const [water, setWater] = useState(45);
   const { user, logout } = UserAuth();
   const navigate = useNavigate();
-  readUserData("fredrik2");
+  readBrewStatus("fredrik2");
 
   const getTimeOfDay = () => {
     const hours = new Date().getHours();
@@ -47,6 +47,4 @@ const Account = () => {
       </button>
     </div>
   );
-};
-
-export default Account;
+}

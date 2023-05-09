@@ -12,14 +12,14 @@ export default function writeUserData(userId, boolean) {
     brewingstatus: boolean
   });
 }
-function readBrewStatus(userId, setBrewStatus){
+function readBrewStatus(props){
   const app = initializeApp(firebaseConfig);
   const db = getDatabase(app);
-  const brewingStatus = ref(db, 'users/' + userId + '/brewingstatus');
+  const brewingStatus = ref(db, 'users/' + props.userId + '/brewingstatus');
   off(brewingStatus)
   onValue(brewingStatus, (snapshot) => {
     const data = snapshot.val();
-    setBrewStatus(data.brewingstatus);
+    //props.setBrewStatus(data.brewingstatus);
   })
   
   //return brewingStatus;
@@ -34,30 +34,31 @@ function writeWaterLevel(userId, waterLevelValue) {
   });
 }
 
-function readWaterLevel(userId, setWaterLevelState, setWaterLevel){
+function readWaterLevel(props){
   const app = initializeApp(firebaseConfig);
   const db = getDatabase(app);
-  const waterLevel = ref(db, 'users/' + userId);
+  const waterLevel = ref(db, 'users/' + props.userId);
   //off(waterLevel)
   onValue(waterLevel, (snapshot) => {
     const data = snapshot.val();
-    console.log("Firebase data:", data); // Add this line
-    setWaterLevelState(data.waterLevel)
-    setWaterLevel(data.waterLevel)
-    //console.log(data.waterLevel);
   })
 }
-function readWaterLevel2(userId, setWaterLevelState){
+{/* Waterlevel from firebase used for status */}
+function readWaterLevel2(userId, setWaterLevelState) {
   const app = initializeApp(firebaseConfig);
   const db = getDatabase(app);
-  const waterLevel = ref(db, 'users/' + userId + '/waterLevel'); // access 'waterLevel' field under 'users'
-  off(waterLevel)
-  onValue(waterLevel, (snapshot) => {
-    const data = snapshot.val();
-    setWaterLevelState(data) // pass the entire data object as 'waterLevelState'
-    console.log("Firebase data:", data);
-  })
+  const waterLevelRef = ref(db, `users/${userId}/waterLevel`);
+
+  // Attach the listener to retrieve the water level value from Firebase
+  onValue(waterLevelRef, (snapshot) => {
+    const waterLevel = snapshot.val();
+    setWaterLevelState(waterLevel);
+  });
+
+  // Unsubscribe from the listener when no longer needed
+  return () => off(waterLevelRef);
 }
+
 function readWaterLevel3(userId, setWaterLevelState){
   const app = initializeApp(firebaseConfig);
   const db = getDatabase(app);
@@ -68,9 +69,10 @@ function readWaterLevel3(userId, setWaterLevelState){
     setWaterLevelState(data) // pass the entire data object as 'waterLevelState'
     console.log("Firebase data:", data);
   })
+  // Unsubscribe from the listener when no longer needed
+  return () => off(waterLevel);
 }
-
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-export {writeWaterLevel, readWaterLevel, readWaterLevel2, readWaterLevel3, readBrewStatus}
+export {writeWaterLevel, readWaterLevel, readWaterLevel2, readBrewStatus}
