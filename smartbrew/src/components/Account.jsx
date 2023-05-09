@@ -1,5 +1,6 @@
 import React,{useState} from "react";
 import { useNavigate } from "react-router-dom";
+import Timer from "../views/timer";
 import StartPresenter from "../presenters/startPresenter";
 import WaterLevel from "../presenters/waterLevelPresenter";
 import CircleLoaderPresenter from '../presenters/circleLoaderPresenter'
@@ -37,8 +38,8 @@ const Account = () => {
       <p>
         Good {getTimeOfDay()}, {user && user.email}
       </p>
-
       <StartPresenter />
+      <Timer />
       <WaterLevel setWaterLevel={setWater}/>
       <CircleLoader waterLevel={water}/>
       <button onClick={handleLogout} className="button-2">
