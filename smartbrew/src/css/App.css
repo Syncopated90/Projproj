@@ -1,6 +1,9 @@
 body {
   background-color: #e5e1cf;
 }
+.progress-wheel {
+  background-color: rgb(241,239,232);
+}
 .App {
   text-align: center;
 }

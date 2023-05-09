@@ -1,4 +1,4 @@
-import { CircularProgressbar } from 'react-circular-progressbar';
+import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import "../css/App.css";
 
@@ -8,19 +8,35 @@ export default function CircleLoader(props){
   if(props.turnedOn === false){
     return (
         <div style={{ alignItems: 'center', width: 300, height: 300, margin: 'auto' }}>
-          <CircularProgressbar styles={{path:{stroke:'red'}, trail: {stroke: 'red',}}}/>
+          <CircularProgressbarWithChildren 
+            background={true}
+            strokeWidth= {1} 
+            styles={{path:{stroke:'black'}, trail: {stroke: 'red'}, background:{fill:'#F1EFE8'}}}>
+              <div>Ready to brew.</div>
+              <div>Brewing status: 0 %</div>
+          </CircularProgressbarWithChildren>
         </div>
     );}
-  else if(percentage === 100){
+  else if(percentage >= 100){
     props.setBrewIsFinished(true)
     return (
         <div style={{ alignItems: 'center', width: 300, height: 300, margin: 'auto' }}>
-          <CircularProgressbar styles={{path:{stroke:'green'}, trail: {stroke: 'green',}}}/>
+          <CircularProgressbarWithChildren 
+          strokeWidth= {3}
+          background={true}
+          styles={{path:{stroke:'green'}, trail: {stroke: 'green',}, background:{fill:'#F1EFE8'}}}/>
         </div>
     );}
   else return (<>
     <div style={{alignItems: 'center', width: 300, height: 300, margin: 'auto' }}>
-      <CircularProgressbar value={percentage} text={`${percentage}%`} />
+      <CircularProgressbarWithChildren 
+      value={percentage}
+      background={true} 
+      strokeWidth= {3} 
+      styles={{path:{stroke:'red'},trail:{stroke:'black', }, background:{fill:'#F1EFE8'}}}>
+        <div>Your coffee is brewing</div>
+        <div>Brewing status: {percentage}%</div>
+      </CircularProgressbarWithChildren>
     </div></>
   );
 }
