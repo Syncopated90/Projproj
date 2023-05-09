@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  writeWaterLevel,
-  readWaterLevel2,
-  readWaterLevel,
-} from "../firebaseModel";
+import { readWaterLevel2 } from "../firebaseModel";
 import { StopBrew, StartBrew, minimumValuetoWaterlevel } from "./startView";
 
 function NotBrewView(props) {
