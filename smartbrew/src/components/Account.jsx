@@ -11,6 +11,7 @@ export default function Account (){
   const [water, setWater] = useState(45);
   const [turnedOn, turnOn] = useState(false);
   const[startWaterLevel, setStartWaterLevel] = useState(0)
+  const[brewIsFinished, setBrewIsFinished] = useState(false)
   const { user, logout } = UserAuth();
   const navigate = useNavigate();
   readBrewStatus("fredrik");
@@ -46,7 +47,7 @@ export default function Account (){
       <StartPresenter turnOn={startBrewing}/>
       <Timer />
       <WaterLevel setWaterLevel={setWater}/>
-      <CircleLoader waterLevel={water} turnedOn={turnedOn} startWaterLevel={startWaterLevel}/>
+      <CircleLoader setBrewIsFinished={setBrewIsFinished}  waterLevel={water} turnedOn={turnedOn} startWaterLevel={startWaterLevel}/>
       <button onClick={handleLogout} className="button-2">
         Logout
       </button>

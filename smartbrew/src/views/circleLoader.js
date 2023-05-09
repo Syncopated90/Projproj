@@ -12,17 +12,19 @@ export default function CircleLoader(props){
         </div>
     );}
   else if(percentage === 100){
+    props.setBrewIsFinished(true)
     return (
         <div style={{ alignItems: 'center', width: 300, height: 300, margin: 'auto' }}>
           <CircularProgressbar styles={{path:{stroke:'green'}, trail: {stroke: 'green',}}}/>
         </div>
     );}
   else return (<>
-    <div>absLevelAtStart was {absLevelAtStart}</div>
-    <div>props.waterlevel is {props.waterLevel}</div>
-    <div>pecentage is {percentage}</div>
     <div style={{alignItems: 'center', width: 300, height: 300, margin: 'auto' }}>
       <CircularProgressbar value={percentage} text={`${percentage}%`} />
     </div></>
   );
 }
+/*
+    <div>absLevelAtStart was {absLevelAtStart}</div>
+    <div>props.waterlevel is {props.waterLevel}</div>
+    <div>pecentage is {percentage}</div>*/
