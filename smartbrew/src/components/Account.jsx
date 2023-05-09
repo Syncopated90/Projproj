@@ -8,7 +8,7 @@ import CircleLoader from "../views/circleLoader";
 import { UserAuth } from "../context/AuthContext";
 import { readBrewStatus, readWaterLevel } from "../firebaseModel";
 
-const Account = () => {
+export default function Account (){
   const [water, setWater] = useState(45);
   const { user, logout } = UserAuth();
   const navigate = useNavigate();
@@ -47,6 +47,4 @@ const Account = () => {
       </button>
     </div>
   );
-};
-
-export default Account;
+}

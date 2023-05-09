@@ -70,7 +70,7 @@ function readWaterLevel3(userId, setWaterLevelState){
     console.log("Firebase data:", data);
   })
   // Unsubscribe from the listener when no longer needed
-  return () => off(waterLevelRef);
+  return () => off(waterLevel);
 }
 
 const app = initializeApp(firebaseConfig);

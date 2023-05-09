@@ -7,7 +7,6 @@ import {
 } from "../firebaseModel";
 import sound from "../sounds/sound.mp3";
 
-<<<<<<< HEAD
 export default function WaterLevel(props){
     const [waterLevelState, setWaterLevelState] = useState(0);
     const [hasMounted, setHasMounted] = useState(false);
@@ -32,13 +31,6 @@ export default function WaterLevel(props){
         }
         setHasMounted(true)
     }, [waterLevelState])
-=======
-export default function WaterLevel(props) {
-  const [waterLevelState, setWaterLevelState] = useState(0);
-  const [hasMounted, setHasMounted] = useState(false);
-  const audio = new Audio(sound);
-  audio.volume = 0.1;
->>>>>>> 7c5bfb2 (removed unused code)
 
   useEffect(() => {
     readWaterLevel("fredrik", setWaterLevelState, props.setWaterLevel);
