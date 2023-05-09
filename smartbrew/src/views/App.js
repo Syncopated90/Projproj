@@ -7,6 +7,7 @@ import Signup from "../components/Signup";
 import { AuthContextProvider } from "../context/AuthContext";
 import ProtectedRoute from "../components/ProtectedRoute";
 
+
 function App() {
   return (
     <div className="App">
