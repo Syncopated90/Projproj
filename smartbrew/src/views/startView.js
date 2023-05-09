@@ -20,7 +20,7 @@ function StartBrew(props) {
   return (
     <div className="App">
       <button
-        class="button-39"
+        className="button-39"
         role="button"
         disabled={
           waterLevelState !== null &&
