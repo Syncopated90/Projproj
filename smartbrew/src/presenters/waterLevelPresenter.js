@@ -14,11 +14,11 @@ export default function WaterLevel(props){
     audio.volume = 0.1
     
     useEffect(() => {
-        readWaterLevel("fredrik", setWaterLevelState, props.setWaterLevel);
+        readWaterLevel("fredrik2", setWaterLevelState, props.setWaterLevel);
         props.setWaterLevel(waterLevelState);
     }, [])
     useEffect(() => {
-        readWaterLevel2("fredrik", (value) => {
+        readWaterLevel2("fredrik2", (value) => {
           console.log("Water level from Firebase:", value);
           setWaterLevelState(value);
           props.setWaterLevel(value);
@@ -33,11 +33,11 @@ export default function WaterLevel(props){
     }, [waterLevelState])
 
   useEffect(() => {
-    readWaterLevel("fredrik", setWaterLevelState, props.setWaterLevel);
+    readWaterLevel("fredrik2", setWaterLevelState, props.setWaterLevel);
     props.setWaterLevel(waterLevelState);
   }, []);
   useEffect(() => {
-    readWaterLevel2("fredrik", (value) => {
+    readWaterLevel2("fredrik2", (value) => {
       console.log("Water level from Firebase:", value);
       setWaterLevelState(value);
       props.setWaterLevel(value);
@@ -60,14 +60,14 @@ export default function WaterLevel(props){
   const clickedOnIncrementHandler = () => {
     const newWaterLevel = waterLevelState + 1;
     setWaterLevelState(newWaterLevel);
-    writeWaterLevel("fredrik", newWaterLevel);
+    writeWaterLevel("fredrik2", newWaterLevel);
     props.setWaterLevel(newWaterLevel);
   };
 
   const clickedOnDecrementHandler = () => {
     const newWaterLevel = waterLevelState - 1;
     setWaterLevelState(newWaterLevel);
-    writeWaterLevel("fredrik", newWaterLevel);
+    writeWaterLevel("fredrik2", newWaterLevel);
     props.setWaterLevel(newWaterLevel);
   };
 

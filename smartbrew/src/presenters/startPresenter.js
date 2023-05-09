@@ -4,13 +4,13 @@ import React, {useState, useEffect} from 'react'
 import writeUserData, { readBrewStatus } from '../firebaseModel';
 import sound from '../sounds/bubble.mp3'
 
-function StartPresenter(){
+function StartPresenter(props){
   const [brewState, setBrewState] = useState(false);
   const audio = new Audio(sound)
   audio.volume = 0.5
 
   useEffect(() => {
-    readBrewStatus("fredrik", setBrewStatus);
+    readBrewStatus("fredrik2", setBrewStatus);
 }, [])
 
   useEffect(() => {
@@ -20,8 +20,9 @@ function StartPresenter(){
 }, [brewState])
 
   function brewStateACB(boolean){
-    writeUserData("fredrik", boolean)
+    writeUserData("fredrik2", boolean)
     setBrewState(!brewState)
+    props.turnOn(!brewState)
   }
   const setBrewStatus = (state) => {setBrewState(state);}
   // <StartView setBrewingStatus = {brewStateACB}/>

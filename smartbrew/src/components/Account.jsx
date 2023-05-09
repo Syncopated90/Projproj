@@ -3,16 +3,18 @@ import { useNavigate } from "react-router-dom";
 import Timer from "../views/timer";
 import StartPresenter from "../presenters/startPresenter";
 import WaterLevel from "../presenters/waterLevelPresenter";
-import CircleLoaderPresenter from "../presenters/circleLoaderPresenter";
 import CircleLoader from "../views/circleLoader";
 import { UserAuth } from "../context/AuthContext";
 import { readBrewStatus, readWaterLevel } from "../firebaseModel";
 
 export default function Account (){
   const [water, setWater] = useState(45);
+  const [turnedOn, turnOn] = useState(false);
+  const[startWaterLevel, setStartWaterLevel] = useState(0)
+  const[brewIsFinished, setBrewIsFinished] = useState(false)
   const { user, logout } = UserAuth();
   const navigate = useNavigate();
-  readBrewStatus("fredrik2");
+  readBrewStatus("fredrik");
 
   const getTimeOfDay = () => {
     const hours = new Date().getHours();
@@ -33,15 +35,19 @@ export default function Account (){
       console.log(e.message);
     }
   };
+  function startBrewing(boolean){
+    turnOn(boolean);
+    setStartWaterLevel(water)
+  }
   return (
     <div className="account-div">
       <p>
         Good {getTimeOfDay()}, {user && user.email}
       </p>
-      <StartPresenter />
+      <StartPresenter turnOn={startBrewing}/>
       <Timer />
       <WaterLevel setWaterLevel={setWater}/>
-      <CircleLoader waterLevel={water}/>
+      <CircleLoader setBrewIsFinished={setBrewIsFinished}  waterLevel={water} turnedOn={turnedOn} startWaterLevel={startWaterLevel}/>
       <button onClick={handleLogout} className="button-2">
         Logout
       </button>

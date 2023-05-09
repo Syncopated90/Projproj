@@ -8,7 +8,7 @@ function NotBrewView(props) {
   let minimumValuetoWaterlevel = 8;
 
   useEffect(() => {
-    readWaterLevel2("fredrik", (value) => {
+    readWaterLevel2("fredrik2", (value) => {
       console.log("Water level from Firebase:", value);
       setWaterLevelState(value);
     });
