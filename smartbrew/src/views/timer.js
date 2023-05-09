@@ -67,7 +67,7 @@ function Timer() {
 
   return (
     <div>
-      <div>{formatTime(timeRemaining)}</div>
+      <div className="font-link">{formatTime(timeRemaining)}</div>
         <button onClick={handleSetTimer}>Set Timer</button>
         <input placeholder="Hours" type="number" text={isNaN(hours) ? '' : hours} min="0" max="2" onChange={handleHoursChange} />
         <input placeholder="Minutes" type="number" text={isNaN(minutes) ? '' : minutes} min="0" max="60" onChange={handleMinutesChange} />
