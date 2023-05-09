@@ -21,13 +21,8 @@ function Timer() {
     }
   }, [timerRunning, timeRemaining]);
 
-  const handleResetTimer = () => {
-    setTimeRemaining(hours * 3600 + minutes * 60 + seconds);
-    setTimerRunning(false);
-  };
-
-  const handleStartStopTimer = () => {
-    setTimerRunning(!timerRunning);
+  const handleStartTimer = () => {
+    setTimerRunning(true);
   };
 
   const handleHoursChange = (e) => {
@@ -76,4 +71,5 @@ function Timer() {
   );
 }
 
-export default Timer;
+export {handleStartTimer}
+export default Timer

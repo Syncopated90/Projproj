@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Timer from "../views/timer";
 import StartPresenter from "../presenters/startPresenter";
@@ -15,6 +15,10 @@ export default function Account (){
   const { user, logout } = UserAuth();
   const navigate = useNavigate();
   readBrewStatus("fredrik");
+
+  // useEffect(() => {
+  //   handleStartTimer();
+  // }, [brewIsFinished])
 
   const getTimeOfDay = () => {
     const hours = new Date().getHours();
