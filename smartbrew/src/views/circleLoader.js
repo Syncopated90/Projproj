@@ -2,6 +2,7 @@ import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import "../css/App.css";
 
+//background color: F1EFE8
 export default function CircleLoader(props){
   var absLevelAtStart = props.startWaterLevel
   var percentage = Math.round(100 * ((absLevelAtStart - props.waterLevel) / absLevelAtStart));
@@ -24,7 +25,10 @@ export default function CircleLoader(props){
           <CircularProgressbarWithChildren 
           strokeWidth= {3}
           background={true}
-          styles={{path:{stroke:'green'}, trail: {stroke: 'green',}, background:{fill:'#F1EFE8'}}}/>
+          styles={{path:{stroke:'green'}, trail: {stroke: 'green',}, background:{fill:'#F1EFE8'}}}>
+            <div>Your coffee is ready</div>
+            <div>Brewing status: 100 %</div>
+          </CircularProgressbarWithChildren>
         </div>
     );}
   else return (<>
@@ -33,14 +37,10 @@ export default function CircleLoader(props){
       value={percentage}
       background={true} 
       strokeWidth= {3} 
-      styles={{path:{stroke:'red'},trail:{stroke:'black', }, background:{fill:'#F1EFE8'}}}>
+      styles={{path:{stroke:'red'},trail:{stroke:'#F5F3EC',}, background:{fill:'#D4D2CC'}}}>
         <div>Your coffee is brewing</div>
-        <div>Brewing status: {percentage}%</div>
+        <div>Brewing status: {((percentage > 0) && percentage) || '0'}%</div>
       </CircularProgressbarWithChildren>
     </div></>
   );
 }
-/*
-    <div>absLevelAtStart was {absLevelAtStart}</div>
-    <div>props.waterlevel is {props.waterLevel}</div>
-    <div>pecentage is {percentage}</div>*/
