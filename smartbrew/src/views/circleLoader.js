@@ -1,4 +1,4 @@
-import { CircularProgressbar } from 'react-circular-progressbar';
+{/*import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import "../css/App.css";
 
@@ -12,4 +12,4 @@ export default function CircleLoader(props){
         <CircularProgressbar value={percentage} text={`${percentage}%`} />
       </div>
   );
-}
+}*/}

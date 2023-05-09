@@ -18,7 +18,11 @@ static/js/main.53008bfb.js,1683125847506,a177e931afa9c350be5e30f41e349266d1c97d4
 static/js/main.53008bfb.js.map,1683125847507,e17f7a20c8d43a721476fa6c2a5be9f46f108c25ae0732294cfc852d97cb9a33
 =======
 =======
+<<<<<<< HEAD
 >>>>>>> fb02bd7 (weird bugs when reading from firebase. Added useEffect-blocks that listen to firebase in the presenters that need it, this could be bad idk.)
+=======
+>>>>>>> 7c5bfb22ede9b32a259e233bcd2efff2c1f9f1fd
+>>>>>>> 604c918a080264a5a85bd26e99ec89e814ed1223
 asset-manifest.json,1683227265325,52ccb4590b6f54a0d5d1f68d3ee51dc773f9c468e70603160db4e69badee81f8
 index.html,1683227265325,eed61761b76d38ccf5c64d6629ac0f1cb9ead08897de80785ee2cfaeea4d4f70
 static/css/main.848240e2.css,1683227265334,70ffb975fb3cd1efd2baa8d94d4c8e3152335b3c23cbe6832ab69e4b9bd8f6f6
@@ -34,4 +38,8 @@ static/js/main.1260029a.js.map,1683227265346,0f77700fc29eb32828b3ede706ab3769e43
 <<<<<<< HEAD
 >>>>>>> fb02bd7 (weird bugs when reading from firebase. Added useEffect-blocks that listen to firebase in the presenters that need it, this could be bad idk.)
 =======
+<<<<<<< HEAD
 >>>>>>> fb02bd7 (weird bugs when reading from firebase. Added useEffect-blocks that listen to firebase in the presenters that need it, this could be bad idk.)
+=======
+>>>>>>> 7c5bfb22ede9b32a259e233bcd2efff2c1f9f1fd
+>>>>>>> 604c918a080264a5a85bd26e99ec89e814ed1223
