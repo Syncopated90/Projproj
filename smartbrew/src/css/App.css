@@ -131,3 +131,9 @@ strong {
   background-color: #D1D5DB;
   cursor: default;
 }
+
+.font-link {
+  font-family: 'DotGothic16';
+  font-size: 30px;
+  letter-spacing: .1rem;
+}
