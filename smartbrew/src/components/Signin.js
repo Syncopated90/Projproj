@@ -36,25 +36,23 @@ const Signin = () => {
       </div>
       <form onSubmit={handleSubmit}>
         <div className="login-labels">
-          <label className="login-labels-text">Email Address</label>
           <input
             onChange={(e) => setEmail(e.target.value)}
-            className="borderp3"
+            className="inputbox"
             type="email"
             placeholder="Email"
           ></input>
         </div>
         <div className="login-labels">
-          <label className="login-labels-text">Password</label>
           <input
             onChange={(e) => setPassword(e.target.value)}
-            className="borderp3"
+            className="inputbox"
             type="password"
             placeholder="Password"
           ></input>
         </div>
-        <div>
-          <button className="button-28">Log in</button>
+        <div className="login-labels">
+          <button className="login-button">Log in</button>
         </div>
         
       </form>

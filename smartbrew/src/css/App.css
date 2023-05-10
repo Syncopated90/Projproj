@@ -28,19 +28,12 @@ strong {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 0.1rem; /* assuming 1rem = 16px, py-2 = 32px/16px = 2rem */
-  padding-bottom: 0.1rem; /* assuming 1rem = 16px, py-2 = 32px/16px = 2rem */
+  padding: 7px;
 }
-.login-labels-text {
-  padding-top: 0.5rem; /* assuming 1rem = 16px, py-2 = 32px/16px = 2rem */
-  padding-bottom: 0.5rem; /* assuming 1rem = 16px, py-2 = 32px/16px = 2rem */
-  font-weight: 500; /* assuming "font-medium" means "semi-bold" */
-
-}
-.borderp3 {
+.inputbox {
   border: 1px solid #000; /* assuming black border color */
   padding: 1.5rem;
-  width: 25%;
+  width: 30%;
   border-radius: 1px;
   
 }
@@ -62,14 +55,14 @@ strong {
   min-width: 0;
   outline: none;
   /* padding: 16px 22px; */
-  padding: 20px;
+  padding: 10px;
   text-align: center;
   text-decoration: none;
   transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  width: 33%;
+  width: 30%;
   will-change: transform;
 }
 
@@ -133,4 +126,9 @@ strong {
   font-family: 'DotGothic16';
   font-size: 30px;
   letter-spacing: .1rem;
+}
+
+.login-div{
+  margin: auto;
+  padding: 8px;
 }
