@@ -37,10 +37,11 @@ const Signup = () => {
       <form onSubmit={handleSubmit}>
         <div className="login-labels">
           <label className="login-labels-text">Email Address</label>
-          <input
+          <input 
             onChange={(e) => setEmail(e.target.value)}
             className="borderp3"
             type="email"
+  
           ></input>
         </div>
         <div className="login-labels">
@@ -49,6 +50,7 @@ const Signup = () => {
             onChange={(e) => setPassword(e.target.value)}
             className="borderp3"
             type="password"
+            placeholder="Email"
           ></input>
         </div>
         <button class="button-1">Sign up</button>

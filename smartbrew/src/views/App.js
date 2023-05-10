@@ -12,10 +12,11 @@ import logo from "../smartbrew_logo.svg";
 function App() {
   return (
     <div className="App">
+      <img src={logo} alt="smartbrew logo" style={{ width: '350px', height: '150px' }} />
       <div className="title-bar">
-        <h1 className="front-text">SmartBrew</h1>
-        <strong>An internet connected coffee machine</strong>
-        <img src={logo} alt="smartbrew logo" style={{ width: '100px', height: '100px' }} />
+        {/* <h1 className="front-text">SmartBrew</h1> */}
+        {/* <strong>An internet connected coffee machine</strong>
+         */}
       </div>
       <AuthContextProvider>
         <Routes>

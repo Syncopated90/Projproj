@@ -23,37 +23,67 @@ strong {
 }
 .sign-to-your-account {
   font-size: 24px;
+  font-family: Helvetica, sans-serif;
+  font-weight: normal;
 }
 .login-labels {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 0.5rem; /* assuming 1rem = 16px, py-2 = 32px/16px = 2rem */
-  padding-bottom: 0.5rem; /* assuming 1rem = 16px, py-2 = 32px/16px = 2rem */
+  padding: 7px;
 }
-.login-labels-text {
-  padding-top: 0.5rem; /* assuming 1rem = 16px, py-2 = 32px/16px = 2rem */
-  padding-bottom: 0.5rem; /* assuming 1rem = 16px, py-2 = 32px/16px = 2rem */
-  font-weight: 500; /* assuming "font-medium" means "semi-bold" */
-}
-.borderp3 {
+.inputbox {
   border: 1px solid #000; /* assuming black border color */
   padding: 1.5rem;
-  width: 25%;
+  width: 30%;
+  border-radius: 1px;
+  
 }
-.button-1 {
-  border: 1px solid #3b82f6;
-  background-color: #2563eb;
+.login-button {
+  appearance: none;
+  background-color:white;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #3B3B3B;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 60px;
+  min-width: 0;
+  outline: none;
+  /* padding: 16px 22px; */
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 30%;
+  will-change: transform;
+}
+
+.login-button:disabled {
+  pointer-events: none;
+  opacity: 50%;
+}
+
+.login-button:hover {
   color: #fff;
-  padding: 1rem;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  width: 29%;
+  background-color: #1A1A1A;
+  
+  transform: translateY(-2px);
 }
-.button-1:focus,
-.button-1:hover {
-  background-color: #3b82f6;
+
+.login-button:active {
+  box-shadow: none;
+  transform: translateY(0);
 }
 
 .account-div {
@@ -95,50 +125,15 @@ strong {
 /*<!-- HTML !-->
 <button class="button-39" role="button">Button 39</button>*/
 
-/* CSS */
-.button-39 {
-  background-color: #FFFFFF;
-  border: 1px solid rgb(209,213,219);
-  width: 50%;
-  border-radius: .5rem;
-  box-sizing: border-box;
-  color: #111827;
-  font-family: "Inter var",ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-  font-size: .875rem;
-  font-weight: 600;
-  line-height: 1.25rem;
-  padding: .75rem 1rem;
-  text-align: center;
-  text-decoration: none #D1D5DB solid;
-  text-decoration-thickness: auto;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  cursor: pointer;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-
-.button-39:hover {
-  background-color: rgb(249,250,251);
-}
-
-.button-39:focus {
-  outline: 2px solid transparent;
-  outline-offset: 2px;
-}
-
-.button-39:focus-visible {
-  box-shadow: none;
-}
-.button-39:disabled {
-  background-color: #D1D5DB;
-  cursor: default;
-}
-
 .font-link {
   font-family: 'DotGothic16';
   font-size: 20px;
   letter-spacing: .1rem;
+}
+
+.login-div{
+  margin: auto;
+  padding: 8px;
 }
 .wheel-text{
   font-family: 'Helvetica';

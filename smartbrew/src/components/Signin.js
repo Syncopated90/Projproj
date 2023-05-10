@@ -25,7 +25,7 @@ const Signin = () => {
   return (
     <div className="max-w-[700px] mx-auto my-16 p-4">
       <div>
-        <h1 className="sign-to-your-account">Sign in to your account</h1>
+        <h1 className="sign-to-your-account">Welcome back, please login to start brewing</h1>
         {/* Signup funktionen */}
         {/*<p>
           Don't have an account yet?{" "}
@@ -36,22 +36,25 @@ const Signin = () => {
       </div>
       <form onSubmit={handleSubmit}>
         <div className="login-labels">
-          <label className="login-labels-text">Email Address</label>
           <input
             onChange={(e) => setEmail(e.target.value)}
-            className="borderp3"
+            className="inputbox"
             type="email"
+            placeholder="Email"
           ></input>
         </div>
         <div className="login-labels">
-          <label className="login-labels-text">Password</label>
           <input
             onChange={(e) => setPassword(e.target.value)}
-            className="borderp3"
+            className="inputbox"
             type="password"
+            placeholder="Password"
           ></input>
         </div>
-        <button className="button-1">Sign In</button>
+        <div className="login-labels">
+          <button className="login-button">Log in</button>
+        </div>
+        
       </form>
     </div>
   );
