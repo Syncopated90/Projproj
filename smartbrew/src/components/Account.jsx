@@ -44,10 +44,10 @@ export default function Account (){
       <p>
         Good {getTimeOfDay()}, {user && user.email}
       </p>
-      <StartPresenter turnOn={startBrewing}/>
+      <CircleLoader setBrewIsFinished={setBrewIsFinished}  waterLevel={water} turnedOn={turnedOn} startWaterLevel={startWaterLevel}/>
       <Timer />
       <WaterLevel setWaterLevel={setWater}/>
-      <CircleLoader setBrewIsFinished={setBrewIsFinished}  waterLevel={water} turnedOn={turnedOn} startWaterLevel={startWaterLevel}/>
+      <StartPresenter turnOn={startBrewing}/>
       <button onClick={handleLogout} className="button-2">
         Logout
       </button>

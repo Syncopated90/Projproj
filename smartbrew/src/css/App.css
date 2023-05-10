@@ -1,6 +1,9 @@
 body {
   background-color: #e5e1cf;
 }
+.progress-wheel {
+  background-color: rgb(241,239,232);
+}
 .App {
   text-align: center;
 }
@@ -134,6 +137,10 @@ strong {
 
 .font-link {
   font-family: 'DotGothic16';
-  font-size: 30px;
+  font-size: 20px;
   letter-spacing: .1rem;
+}
+.wheel-text{
+  font-family: 'Helvetica';
+  font-size:20px;
 }
