@@ -17,7 +17,7 @@ export default function CircleLoader(props){
             strokeWidth= {1} 
             styles={{path:{stroke:'transparent'}, trail: {stroke: 'transparent'}, background:{fill:backgroundColor}}}>
               <div className='wheel-text'>Ready to brew.</div>
-              <div><span className='wheel-text'>Brewing status: </span><span className='font-link'>0%</span></div>
+              <div><span className='wheel-text'>Brewing status: </span><span className='wheel-number'>0%</span></div>
           </CircularProgressbarWithChildren>
         </div>
     );}
