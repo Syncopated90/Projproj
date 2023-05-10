@@ -1,5 +1,4 @@
 import {StopBrew, StartBrew} from '../views/startView';
-import {NotBrewView, BrewView} from '../views/brewingStatusView';
 import React, {useState, useEffect} from 'react'
 import writeUserData, { readBrewStatus } from '../firebaseModel';
 import sound from '../sounds/bubble.mp3'
@@ -35,8 +34,6 @@ function StartPresenter(props){
   return (<>
     <div>{brewState && <StopBrew setBrewingStatus = {brewStateACB}/>}</div>
     <div>{!brewState && <StartBrew setBrewingStatus = {brewStateACB}/>}</div>
-    <div>{brewState && <BrewView/>}</div>
-    <div>{!brewState && <NotBrewView/>}</div>
     </>);
 }
 

@@ -16,23 +16,14 @@ export default function Account (){
   const navigate = useNavigate();
   readBrewStatus("fredrik");
 
-  const getTimeOfDay = () => {
-    const hours = new Date().getHours();
-    if (hours < 12) {
-      return "morning";
-    } else if (hours < 18) {
-      return "afternoon";
-    } else {
-      return "evening";
-    }
-  };
+
   const handleLogout = async () => {
     try {
       await logout();
       navigate("/");
       console.log("You are logged out");
     } catch (e) {
-      console.log(e.message);
+      console.log(e.messa );
     }
   };
   function startBrewing(boolean){
@@ -47,13 +38,10 @@ export default function Account (){
 
   return (
     <div className="account-div">
-      <p>
-        Good {getTimeOfDay()}, {user && user.email}
-      </p>
-      <StartPresenter turnOn={startBrewing} powerStatus = {status}/>
+      <CircleLoader setBrewIsFinished={setBrewIsFinished}  waterLevel={water} turnedOn={status} startWaterLevel={startWaterLevel}/>
       <Timer isBrewingFinished = {brewIsFinished} turnedOn = {setStatusHandler}/>
       <WaterLevel setWaterLevel={setWater}/>
-      <CircleLoader setBrewIsFinished={setBrewIsFinished}  waterLevel={water} turnedOn={status} startWaterLevel={startWaterLevel}/>
+      <StartPresenter turnOn={startBrewing} powerStatus = {status}/>
       <button onClick={handleLogout} className="button-2">
         Logout
       </button>
