@@ -96,7 +96,8 @@ function Timer(props) {
 
   return (
     <div>
-      <div className="font-link">{formatTime(timeRemaining)}</div>
+      <div className="wheel-text">Keep coffee warm for:</div>
+      <div className="timer">{formatTime(timeRemaining)}</div>
         <button onClick={handleSetTimer}>Set Timer</button>
         <input id="hours" placeholder="Hour" type="number" min="0" max="2" onChange={handleHoursChange} />
         <input id="minutes" placeholder="Min" type="number" min="0" max="60" onChange={handleMinutesChange} />
