@@ -6,6 +6,7 @@ import Signin from "../components/Signin";
 import Signup from "../components/Signup";
 import { AuthContextProvider } from "../context/AuthContext";
 import ProtectedRoute from "../components/ProtectedRoute";
+import logo from "../smartbrew_logo.svg";
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <div className="title-bar">
         <h1 className="front-text">SmartBrew</h1>
         <strong>An internet connected coffee machine</strong>
+        <img src={logo} alt="smartbrew logo" style={{ width: '100px', height: '100px' }} />
       </div>
       <AuthContextProvider>
         <Routes>
