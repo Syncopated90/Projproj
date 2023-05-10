@@ -22,7 +22,7 @@ strong {
   margin-top: 50px;
 }
 .sign-to-your-account {
-  font-size: 24px;
+  font-size: 22px;
   font-family: Helvetica, sans-serif;
   font-weight: normal;
 }
@@ -35,15 +35,15 @@ strong {
 }
 .inputbox {
   border: 1px solid #000; /* assuming black border color */
-  padding: 1.5rem;
+  padding: 10px;
   width: 30%;
-  border-radius: 1px;
+  border-radius: 2px;
   
 }
 .login-button {
   appearance: none;
   background-color:white;
-  border: 2px solid #1A1A1A;
+  border: 1px solid #1A1A1A;
   border-radius: 15px;
   box-sizing: border-box;
   color: #3B3B3B;
@@ -54,10 +54,9 @@ strong {
   font-weight: 600;
   line-height: normal;
   margin: 0;
-  min-height: 60px;
-  min-width: 0;
+  min-height: 38px;
+  /* max-height: 22px; */
   outline: none;
-  /* padding: 16px 22px; */
   padding: 10px;
   text-align: center;
   text-decoration: none;
@@ -65,7 +64,7 @@ strong {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  width: 30%;
+  width: 32%;
   will-change: transform;
 }
 
@@ -77,7 +76,6 @@ strong {
 .login-button:hover {
   color: #fff;
   background-color: #1A1A1A;
-  
   transform: translateY(-2px);
 }
 

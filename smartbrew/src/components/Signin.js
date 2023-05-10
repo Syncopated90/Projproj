@@ -25,7 +25,7 @@ const Signin = () => {
   return (
     <div className="max-w-[700px] mx-auto my-16 p-4">
       <div>
-        <h1 className="sign-to-your-account">Welcome back, please login to start brewing</h1>
+        <h1 className="sign-to-your-account">Welcome back, please login <br></br>to start brewing.</h1>
         {/* Signup funktionen */}
         {/*<p>
           Don't have an account yet?{" "}
