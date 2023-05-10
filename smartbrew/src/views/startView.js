@@ -15,7 +15,7 @@ function StartBrew(props) {
   return (
     <div className="App">
       <button
-        className="button-28"
+        className="button-39"
         disabled={
           waterLevelState !== null &&
           waterLevelState < minimumValuetoWaterlevel &&
@@ -33,7 +33,7 @@ function StopBrew(props) {
   return (
     <div className="App">
       <button
-        class="button-28"
+        class="button-39"
         onClick={() => props.setBrewingStatus(false)}
       >
         Turn off
