@@ -28,8 +28,8 @@ export default function CircleLoader(props){
           strokeWidth= {3}
           background={true}
           styles={{path:{stroke:'green'}, trail: {stroke: 'green',}, background:{fill:backgroundColor}}}>
-            <div>Your coffee is ready</div>
-            <div>Brewing status: 100 %</div>
+            <div className='wheel-text'>Your coffee is ready</div>
+            <div><span className='wheel-text'>Brewing status: </span><span className='font-link'>100 %</span></div>
           </CircularProgressbarWithChildren>
         </div>
     );}
@@ -40,8 +40,8 @@ export default function CircleLoader(props){
       background={true} 
       strokeWidth= {3} 
       styles={{path:{stroke:'red',strokeLinecap: 'butt',},trail:{stroke:'transparent'}, background:{fill:backgroundColor}}}>
-        <div>Your coffee is brewing</div>
-        <div>Brewing status: {((percentage > 0) && percentage) || '0'}%</div>
+        <div className='wheel-text'>Your coffee is brewing</div>
+        <div><span className='wheel-text'>Brewing status: </span><span className='font-link'>{((percentage > 0) && percentage) || '0'}%</span></div>
       </CircularProgressbarWithChildren>
     </div></>
   );
