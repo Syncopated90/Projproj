@@ -10,17 +10,23 @@ function StartPresenter(props){
   audio.volume = 0.5
 
   useEffect(() => {
-    readBrewStatus("fredrik2", setBrewStatus);
-}, [])
+    if(props.powerStatus === false){
+      setBrewState(false)
+    }
+  }, [props.powerStatus])
+
+  useEffect(() => {
+    readBrewStatus("fredrik", setBrewStatus);
+  }, [])
 
   useEffect(() => {
     if (brewState === true) {
         audio.play()
     }
-}, [brewState])
+  }, [brewState])
 
   function brewStateACB(boolean){
-    writeUserData("fredrik2", boolean)
+    writeUserData("fredrik", boolean)
     setBrewState(!brewState)
     props.turnOn(!brewState)
   }

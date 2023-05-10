@@ -8,8 +8,7 @@ function StartBrew(props) {
   const [brewState, setBrewState] = useState();
 
   useEffect(() => {
-    readWaterLevel2("fredrik2", (value) => {
-      console.log("Water level from Firebase:", value);
+    readWaterLevel2("fredrik", (value) => {
       setWaterLevelState(value);
     });
   }, []);
