@@ -51,7 +51,11 @@ const Signin = () => {
             type="password"
           ></input>
         </div>
-        <button className="button-28">Log in</button>
+        <div>
+          
+          <button className="button-28">Log in</button>
+        </div>
+        
       </form>
     </div>
   );
