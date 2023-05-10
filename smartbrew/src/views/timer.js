@@ -11,7 +11,14 @@ function Timer(props) {
     if(props.isBrewingFinished === true){
       setTimerRunning(true)
     }
-  }, [props.isBrewingFinished])
+  }, [props.isBrewingFinished, props.powerStatus])
+
+  useEffect(() => {
+    if(props.powerStatus === false){
+      setTimerRunning(false)
+      setTimeRemaining(600);
+    }
+  }, [props.powerStatus])
 
   useEffect(() => {
     if (timerRunning) {
@@ -94,14 +101,15 @@ function Timer(props) {
     return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
   };
 
+
   return (
     <div>
       <div className="wheel-text">Keep coffee warm for:</div>
       <div className="timer">{formatTime(timeRemaining)}</div>
-        <button onClick={handleSetTimer}>Set Timer</button>
-        <input id="hours" placeholder="Hour" type="number" min="0" max="2" onChange={handleHoursChange} />
-        <input id="minutes" placeholder="Min" type="number" min="0" max="60" onChange={handleMinutesChange} />
-        <input id="seconds" placeholder="Sec" type="number" min="0" max="60" onChange={handleSecondsChange} />
+        <button disabled={timerRunning || props.powerStatus} className={timerRunning || props.powerStatus ? 'timer-button disabled' : 'timer-button'} onClick={handleSetTimer}>Set Timer</button>
+        <input disabled={timerRunning || props.powerStatus} className={timerRunning || props.powerStatus ? 'input-box disabled' : 'input-box'} id="hours" placeholder="Hour" type="number" min="0" max="2" onChange={handleHoursChange} />
+        <input disabled={timerRunning || props.powerStatus} className={timerRunning || props.powerStatus ? 'input-box disabled' : 'input-box'} id="minutes" placeholder="Min" type="number" min="0" max="60" onChange={handleMinutesChange} />
+        <input disabled={timerRunning || props.powerStatus} className={timerRunning || props.powerStatus ? 'input-box disabled' : 'input-box'} id="seconds" placeholder="Sec" type="number" min="0" max="60" onChange={handleSecondsChange} />
     </div>
   );
 }
