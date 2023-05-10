@@ -9,13 +9,11 @@ function NotBrewView(props) {
 
   useEffect(() => {
     readWaterLevel2("fredrik", (value) => {
-      console.log("Water level from Firebase:", value);
       setWaterLevelState(value);
     });
   }, []);
 
   let text;
-  console.log("Water level state for text: " + waterLevelState);
   if (!brewState) {
     text =
       waterLevelState === null

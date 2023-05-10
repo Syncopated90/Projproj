@@ -9,7 +9,6 @@ function StartBrew(props) {
 
   useEffect(() => {
     readWaterLevel2("fredrik", (value) => {
-      console.log("Water level from Firebase:", value);
       setWaterLevelState(value);
     });
   }, []);

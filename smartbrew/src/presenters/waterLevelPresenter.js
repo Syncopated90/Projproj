@@ -32,31 +32,6 @@ export default function WaterLevel(props){
         setHasMounted(true)
     }, [waterLevelState])
 
-  useEffect(() => {
-    readWaterLevel("fredrik", setWaterLevelState, props.setWaterLevel);
-    props.setWaterLevel(waterLevelState);
-  }, []);
-  useEffect(() => {
-    readWaterLevel2("fredrik", (value) => {
-      console.log("Water level from Firebase:", value);
-      setWaterLevelState(value);
-      props.setWaterLevel(value);
-    });
-  }, []);
-  useEffect(() => {
-    if (hasMounted && waterLevelState === 0) {
-      console.log(
-        "hello, " +
-          "mounted?: " +
-          hasMounted +
-          ", waterlevel?: " +
-          waterLevelState
-      );
-      audio.play();
-    }
-    setHasMounted(true);
-  }, [waterLevelState]);
-
   const clickedOnIncrementHandler = () => {
     const newWaterLevel = waterLevelState + 1;
     setWaterLevelState(newWaterLevel);
