@@ -6,13 +6,14 @@ import "../css/App.css";
 export default function CircleLoader(props){
   var absLevelAtStart = props.startWaterLevel
   var percentage = Math.round(100 * ((absLevelAtStart - props.waterLevel) / absLevelAtStart));
+  const backgroundColor = '#F1EFE8'
   if(props.turnedOn === false){
     return (
         <div style={{ alignItems: 'center', width: 300, height: 300, margin: 'auto' }}>
           <CircularProgressbarWithChildren 
             background={true}
             strokeWidth= {1} 
-            styles={{path:{stroke:'black'}, trail: {stroke: 'red'}, background:{fill:'#F1EFE8'}}}>
+            styles={{path:{stroke:'transparent'}, trail: {stroke: 'transparent'}, background:{fill:backgroundColor}}}>
               <div>Ready to brew.</div>
               <div>Brewing status: 0 %</div>
           </CircularProgressbarWithChildren>
@@ -25,7 +26,7 @@ export default function CircleLoader(props){
           <CircularProgressbarWithChildren 
           strokeWidth= {3}
           background={true}
-          styles={{path:{stroke:'green'}, trail: {stroke: 'green',}, background:{fill:'#F1EFE8'}}}>
+          styles={{path:{stroke:'green'}, trail: {stroke: 'green',}, background:{fill:backgroundColor}}}>
             <div>Your coffee is ready</div>
             <div>Brewing status: 100 %</div>
           </CircularProgressbarWithChildren>
@@ -37,7 +38,7 @@ export default function CircleLoader(props){
       value={percentage}
       background={true} 
       strokeWidth= {3} 
-      styles={{path:{stroke:'red'},trail:{stroke:'#F5F3EC',}, background:{fill:'#D4D2CC'}}}>
+      styles={{path:{stroke:'red',strokeLinecap: 'butt',},trail:{stroke:'transparent'}, background:{fill:backgroundColor}}}>
         <div>Your coffee is brewing</div>
         <div>Brewing status: {((percentage > 0) && percentage) || '0'}%</div>
       </CircularProgressbarWithChildren>
