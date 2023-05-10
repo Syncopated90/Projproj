@@ -137,6 +137,10 @@ strong {
 
 .font-link {
   font-family: 'DotGothic16';
-  font-size: 30px;
+  font-size: 20px;
   letter-spacing: .1rem;
+}
+.wheel-text{
+  font-family: 'Helvetica';
+  font-size:20px;
 }
