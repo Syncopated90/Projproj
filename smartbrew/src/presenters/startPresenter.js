@@ -16,7 +16,7 @@ function StartPresenter(props){
   }, [props.powerStatus])
 
   useEffect(() => {
-    readBrewStatus("fredrik2", setBrewStatus);
+    readBrewStatus("fredrik", setBrewStatus);
   }, [])
 
   useEffect(() => {
@@ -26,7 +26,7 @@ function StartPresenter(props){
   }, [brewState])
 
   function brewStateACB(boolean){
-    writeUserData("fredrik2", boolean)
+    writeUserData("fredrik", boolean)
     setBrewState(!brewState)
     props.turnOn(!brewState)
   }
