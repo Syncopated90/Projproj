@@ -5,7 +5,7 @@ import StartPresenter from "../presenters/startPresenter";
 import WaterLevel from "../presenters/waterLevelPresenter";
 import CircleLoader from "../views/circleLoader";
 import { UserAuth } from "../context/AuthContext";
-import { readBrewStatus, readWaterLevel } from "../firebaseModel";
+import writeUserData, { readBrewStatus, readWaterLevel } from "../firebaseModel";
 
 export default function Account (){
   const [water, setWater] = useState(45);
@@ -42,7 +42,7 @@ export default function Account (){
 
   function setStatusHandler(){
     setStatus(false)
-
+    writeUserData("fredrik", false)
   }
 
   return (
