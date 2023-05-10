@@ -53,7 +53,7 @@ const Signin = () => {
             placeholder="Password"
           ></input>
         </div>
-        <div style="padd">
+        <div>
           <button className="button-28">Log in</button>
         </div>
         
