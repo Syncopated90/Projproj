@@ -7,9 +7,10 @@ export default function CircleLoader(props){
   var absLevelAtStart = props.startWaterLevel
   var percentage = Math.round(100 * ((absLevelAtStart - props.waterLevel) / absLevelAtStart));
   const backgroundColor = '#F1EFE8'
+  const wheelSize= 250
   if(props.turnedOn === false){
     return (
-        <div style={{ alignItems: 'center', width: 300, height: 300, margin: 'auto' }}>
+        <div style={{ alignItems: 'center', width: wheelSize, height: wheelSize, margin: 'auto' }}>
           <CircularProgressbarWithChildren 
             background={true}
             strokeWidth= {1} 
@@ -22,7 +23,7 @@ export default function CircleLoader(props){
   else if(percentage >= 100){
     props.setBrewIsFinished(true)
     return (
-        <div style={{ alignItems: 'center', width: 300, height: 300, margin: 'auto' }}>
+        <div style={{ alignItems: 'center', width: wheelSize, height: wheelSize, margin: 'auto' }}>
           <CircularProgressbarWithChildren 
           strokeWidth= {3}
           background={true}
@@ -33,7 +34,7 @@ export default function CircleLoader(props){
         </div>
     );}
   else return (<>
-    <div style={{alignItems: 'center', width: 300, height: 300, margin: 'auto' }}>
+    <div style={{alignItems: 'center', width: wheelSize, height: wheelSize, margin: 'auto' }}>
       <CircularProgressbarWithChildren 
       value={percentage}
       background={true} 
