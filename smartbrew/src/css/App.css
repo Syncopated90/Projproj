@@ -44,24 +44,9 @@ strong {
   border-radius: 1px;
   
 }
-.button-1 {
-  border: 1px solid #000;
-  background-color: #FFFF;
-  color: #000;
-  padding: 1rem;
-  margin-top: 2rem;
-  margin-bottom: 0.5rem;
-  width: 31%;
-  font-family: Arial, Helvetica, sans-serif;
-  
-}
-.button-1:focus,
-.button-1:hover {
-  background-color: #3b82f6;
-}
-.button-28 {
+.login-button {
   appearance: none;
-  background-color: transparent white;
+  background-color:white;
   border: 2px solid #1A1A1A;
   border-radius: 15px;
   box-sizing: border-box;
@@ -88,19 +73,19 @@ strong {
   will-change: transform;
 }
 
-.button-28:disabled {
+.login-button:disabled {
   pointer-events: none;
   opacity: 50%;
 }
 
-.button-28:hover {
+.login-button:hover {
   color: #fff;
   background-color: #1A1A1A;
   
   transform: translateY(-2px);
 }
 
-.button-28:active {
+.login-button:active {
   box-shadow: none;
   transform: translateY(0);
 }

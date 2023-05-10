@@ -41,6 +41,7 @@ const Signin = () => {
             onChange={(e) => setEmail(e.target.value)}
             className="borderp3"
             type="email"
+            placeholder="Email"
           ></input>
         </div>
         <div className="login-labels">
@@ -49,10 +50,10 @@ const Signin = () => {
             onChange={(e) => setPassword(e.target.value)}
             className="borderp3"
             type="password"
+            placeholder="Password"
           ></input>
         </div>
-        <div>
-          
+        <div style="padd">
           <button className="button-28">Log in</button>
         </div>
         
