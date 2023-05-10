@@ -42,9 +42,6 @@ export default function Account (){
       <Timer isBrewingFinished = {brewIsFinished} turnedOn = {setStatusHandler}/>
       <WaterLevel setWaterLevel={setWater}/>
       <StartPresenter turnOn={startBrewing} powerStatus = {status}/>
-      <button onClick={handleLogout} className="button-2">
-        Logout
-      </button>
     </div>
   );
 }
