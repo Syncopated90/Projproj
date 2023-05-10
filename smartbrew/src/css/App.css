@@ -22,7 +22,8 @@ strong {
   margin-top: 50px;
 }
 .sign-to-your-account {
-  font-size: 22px;
+  padding-top:40px;
+  font-size: 17px;
   font-family: Helvetica, sans-serif;
   font-weight: normal;
 }
@@ -32,39 +33,48 @@ strong {
   justify-content: center;
   align-items: center;
   padding: 7px;
+  padding-top:20px;
 }
 .inputbox {
   border: 1px solid #000; /* assuming black border color */
   padding: 10px;
-  width: 30%;
-  border-radius: 2px;
+  width: 300px;
+  border-radius: 5px;
+  font-family:'Helvetica';
+  font-size:15px;
+  padding-top:10px;
   
 }
+.outer-padding{
+ padding-top:10px; 
+}
+
+*{box-sizing:border-box;}
+
 .login-button {
   appearance: none;
   background-color:white;
   border: 1px solid #1A1A1A;
-  border-radius: 15px;
+  border-radius: 5px;
   box-sizing: border-box;
   color: #3B3B3B;
   cursor: pointer;
   display: inline-block;
-  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-family:'Helvetica';
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 'regular';
   line-height: normal;
   margin: 0;
   min-height: 38px;
   /* max-height: 22px; */
   outline: none;
-  padding: 10px;
   text-align: center;
   text-decoration: none;
   transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  width: 32%;
+  width: 300px;
   will-change: transform;
 }
 
@@ -168,22 +178,90 @@ strong {
   font-size: 20px;
   letter-spacing: .1rem;
 }
-
+.site-text{
+  font-family:'Helvetica';
+  font-size:15px;
+  padding-top:20px;
+}
 .timer {
   font-family: 'DotGothic16';
   font-size: 30px;
   letter-spacing: .1rem;
+}
+.timer-button{
+  appearance: none;
+  background-color:white;
+  border: 1px solid #1A1A1A;
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: #3B3B3B;
+  cursor: pointer;
+  display: inline-block;
+  font-family:'Helvetica';
+  font-size: 16px;
+  font-weight: 'regular';
+  line-height: normal;
+  margin: 1px;
+  min-height: 38px;
+  /* max-height: 22px; */
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  width: 100px;
+  will-change: transform;
+}
+.timer-button:disabled {
+  pointer-events: none;
+  opacity: 50%;
+}
+
+.timer-button:hover {
+  color: #fff;
+  background-color: #1A1A1A;
+  transform: translateY(-2px);
+}
+
+.timer-button:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+.timer-input::placeholder {
+  color: rgba(0,0,0,0.3);
+}
+
+.timer-input{
+  border: 1px solid #1A1A1A;
+  border-radius: 5px;
+  font-size:16px;
+  width:60px;
+  min-height: 38px;
+  margin:1px;
+  padding-left:6px;
+  vertical-align: middle;
+}
+.timer-input.disabled{
+  border: 1px solid #1A1A1A;
+  border-radius: 5px;
+  font-size:16px;
+  width:60px;
+  min-height: 38px;
+  margin:1px;
+  padding-left:6px;
+  vertical-align: middle;
+  background-color: #ccc;
 }
 .wheel-text{
   font-family: 'Helvetica';
   font-size:20px;
 }
 
-.timer-button.disabled {
-  background-color: #ccc;
-  pointer-events: none;
-}
-
 .input-box.disabled {
   background-color: #ccc;
+}
+.logo{
+  padding-top:50px;
 }

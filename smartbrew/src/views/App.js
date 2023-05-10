@@ -10,9 +10,9 @@ import logo from "../smartbrew_logo.svg";
 
 
 function App() {
-  return (
+  return (<>
     <div className="App">
-        <img src={logo} alt="smartbrew logo" style={{ width: '100px', height: '100px' }} />
+    <img src={logo} alt="smartbrew logo" className='logo'style={{ width: '300px',}} />
       <AuthContextProvider>
         <Routes>
           <Route path="/" element={<Signin />} />
@@ -27,7 +27,7 @@ function App() {
           />
         </Routes>
       </AuthContextProvider>
-    </div>
+    </div></>
   );
 }
 

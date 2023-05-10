@@ -3,7 +3,7 @@ function WaterLevelView(props) {
     <div className="waterLevel">
       <button onClick={props.onClickIncrement}>+</button>
       <button onClick={props.onClickDecrement}>-</button>
-      <div>
+      <div className='site-text'>
         <span>Current water level </span>
         <span className="font-link">{props.value}%</span>
       </div>

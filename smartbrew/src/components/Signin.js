@@ -35,7 +35,7 @@ const Signin = () => {
   </p>*/}
       </div>
       <form onSubmit={handleSubmit}>
-        <div className="login-labels">
+        <div className='outer-padding'>
           <input
             onChange={(e) => setEmail(e.target.value)}
             className="inputbox"
@@ -43,7 +43,7 @@ const Signin = () => {
             placeholder="Email"
           ></input>
         </div>
-        <div className="login-labels">
+        <div className='outer-padding'>
           <input
             onChange={(e) => setPassword(e.target.value)}
             className="inputbox"
@@ -52,7 +52,7 @@ const Signin = () => {
           ></input>
         </div>
         <div className="login-labels">
-          <button className="login-button">Log in</button>
+          <button className="login-button">Login</button>
         </div>
         
       </form>
