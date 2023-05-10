@@ -9,6 +9,7 @@ export default function CircleLoader(props){
   const backgroundColor = '#F1EFE8'
   const wheelSize= 250
   if(props.turnedOn === false){
+    props.setBrewIsFinished(false)
     return (
         <div style={{ alignItems: 'center', width: wheelSize, height: wheelSize, margin: 'auto' }}>
           <CircularProgressbarWithChildren 

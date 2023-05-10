@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from 'react';
 
-function Timer() {
+function Timer(props) {
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(10);
   const [seconds, setSeconds] = useState(0);
   const [timeRemaining, setTimeRemaining] = useState(hours * 3600 + minutes * 60 + seconds);
   const [timerRunning, setTimerRunning] = useState(false);
+
+  useEffect(() => {
+    if(props.isBrewingFinished === true){
+      setTimerRunning(true)
+    }
+  }, [props.isBrewingFinished])
 
   useEffect(() => {
     if (timerRunning) {
@@ -15,23 +21,18 @@ function Timer() {
         } else {
           setTimerRunning(false);
           clearInterval(timer);
+          props.turnedOn()
         }
       }, 1000);
       return () => clearInterval(timer);
     }
   }, [timerRunning, timeRemaining]);
 
-  const handleResetTimer = () => {
-    setTimeRemaining(hours * 3600 + minutes * 60 + seconds);
-    setTimerRunning(false);
-  };
-
-  const handleStartStopTimer = () => {
-    setTimerRunning(!timerRunning);
-  };
-
   const handleHoursChange = (e) => {
     var value = parseInt(e.target.value);
+    if((value === '')){
+      value = 0;
+    }
     if (value > 2){
       value = 2;
     }
@@ -42,6 +43,9 @@ function Timer() {
 
   const handleMinutesChange = (e) => {
     const value = parseInt(e.target.value);
+    if((value === '')){
+      value = 0;
+    }
     if (!isNaN(value) && value >= 0 && value <= 60) {
       setMinutes(value);
     }
@@ -49,14 +53,39 @@ function Timer() {
 
   const handleSecondsChange = (e) => {
     const value = parseInt(e.target.value);
+    if(value === ''){
+      value = 0;
+    }
     if (!isNaN(value) && value >= 0 && value <= 60) {
       setSeconds(value);
     }
   };  
 
   const handleSetTimer = () => {
-    setTimeRemaining(hours * 3600 + minutes * 60 + seconds);
+    var totalHours = parseInt(document.getElementById('hours').value) || 0;
+    var totalMinutes = parseInt(document.getElementById('minutes').value) || 0;
+    var totalSeconds = parseInt(document.getElementById('seconds').value) || 0;
+    if (totalHours > 2){
+      totalHours = 2
+    }
+    if (totalHours < 0){
+      totalHours = 0
+    }
+    if (totalMinutes > 60){
+      totalMinutes = 60
+    }
+    if (totalMinutes < 0){
+      totalMinutes = 0
+    }
+    if (totalSeconds > 60){
+      totalSeconds = 60
+    }
+    if (totalSeconds < 0){
+      totalSeconds = 0
+    }
+    setTimeRemaining(totalHours * 3600 + totalMinutes * 60 + totalSeconds);
   };
+
 
   const formatTime = (time) => {
     let hours = Math.floor(time / 3600);
@@ -69,11 +98,11 @@ function Timer() {
     <div>
       <div className="font-link">{formatTime(timeRemaining)}</div>
         <button onClick={handleSetTimer}>Set Timer</button>
-        <input placeholder="Hours" type="number" text={isNaN(hours) ? '' : hours} min="0" max="2" onChange={handleHoursChange} />
-        <input placeholder="Minutes" type="number" text={isNaN(minutes) ? '' : minutes} min="0" max="60" onChange={handleMinutesChange} />
-        <input placeholder="Seconds" type="number" text={isNaN(seconds) ? '' : seconds} min="0" max="60" onChange={handleSecondsChange} />
+        <input id="hours" placeholder="Hour" type="number" min="0" max="2" onChange={handleHoursChange} />
+        <input id="minutes" placeholder="Min" type="number" min="0" max="60" onChange={handleMinutesChange} />
+        <input id="seconds" placeholder="Sec" type="number" min="0" max="60" onChange={handleSecondsChange} />
     </div>
   );
 }
 
-export default Timer;
+export default Timer
