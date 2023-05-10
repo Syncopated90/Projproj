@@ -6,6 +6,7 @@ export default function CircleLoader(props){
   var absLevelAtStart = props.startWaterLevel
   var percentage = Math.round(100 * ((absLevelAtStart - props.waterLevel) / absLevelAtStart));
   if(props.turnedOn === false){
+    props.setBrewIsFinished(false)
     return (
         <div style={{ alignItems: 'center', width: 300, height: 300, margin: 'auto' }}>
           <CircularProgressbar styles={{path:{stroke:'red'}, trail: {stroke: 'red',}}}/>

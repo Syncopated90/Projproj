@@ -10,14 +10,20 @@ function StartPresenter(props){
   audio.volume = 0.5
 
   useEffect(() => {
+    if(props.powerStatus === false){
+      setBrewState(false)
+    }
+  }, [props.powerStatus])
+
+  useEffect(() => {
     readBrewStatus("fredrik2", setBrewStatus);
-}, [])
+  }, [])
 
   useEffect(() => {
     if (brewState === true) {
         audio.play()
     }
-}, [brewState])
+  }, [brewState])
 
   function brewStateACB(boolean){
     writeUserData("fredrik2", boolean)
