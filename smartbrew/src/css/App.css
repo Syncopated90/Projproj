@@ -61,7 +61,7 @@ strong {
   cursor: pointer;
   display: inline-block;
   font-family:'Helvetica';
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 'regular';
   line-height: normal;
   margin: 0;
@@ -180,13 +180,13 @@ strong {
 }
 .site-text{
   font-family:'Helvetica';
-  font-size:20px;
+  font-size:19px;
   padding-top:20px;
   margin-bottom:2px;
 }
 .timer {
   font-family: 'DotGothic16';
-  font-size: 30px;
+  font-size: 32px;
   letter-spacing: .1rem;
   margin-bottom:8px;
 }
@@ -266,19 +266,20 @@ strong {
 }
 .water-text{
   font-family:'Helvetica';
-  font-size:20px;  
+  font-size:19px;  
   margin-top:10px;
   margin-bottom:12px;
 }
 .water-number{
   font-family: 'DotGothic16';
-  font-size: 20px;
-  letter-spacing: .2rem;
+  font-size: 18.5px;
+  letter-spacing: .1rem;
 }
 
 .input-box.disabled {
   background-color: #ccc;
 }
 .logo{
-  padding-top:19px;
+  padding-top:45px;
+  padding-bottom: 10px;
 }
