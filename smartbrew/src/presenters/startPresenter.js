@@ -1,12 +1,16 @@
 import {StopBrew, StartBrew} from '../views/startView';
 import React, {useState, useEffect} from 'react'
 import writeUserData, { readBrewStatus } from '../firebaseModel';
-import sound from '../sounds/bubble.mp3'
+import bubbleSound from '../sounds/bubble.mp3'
+import shutDown from '../sounds/shutdown.mp3'
 
 function StartPresenter(props){
   const [brewState, setBrewState] = useState(false);
-  const audio = new Audio(sound)
-  audio.volume = 0.5
+  const [hasMounted, setHasMounted] = useState(false);
+  const start = new Audio(bubbleSound)
+  start.volume = 0.5
+  const powerOff = new Audio(shutDown)
+  powerOff.volume = 0.5
 
   useEffect(() => {
     if(props.powerStatus === false){
@@ -20,8 +24,15 @@ function StartPresenter(props){
 
   useEffect(() => {
     if (brewState === true) {
-        audio.play()
+      start.play()
     }
+  }, [brewState])
+
+  useEffect(() => {
+    if (hasMounted && brewState === false) {
+      powerOff.play()
+    }
+    setHasMounted(true)
   }, [brewState])
 
   function brewStateACB(boolean){
