@@ -12,6 +12,7 @@ function StartBrew(props) {
       setWaterLevelState(value);
     });
   }, []);
+  console.log(props.waterLevel)
   return (
     <div className="App">
       <button
@@ -33,7 +34,7 @@ function StopBrew(props) {
   return (
     <div className="App">
       <button
-        class="login-button"
+        className="login-button"
         onClick={() => props.setBrewingStatus(false)}
       >
         Turn off
@@ -41,5 +42,28 @@ function StopBrew(props) {
     </div>
   );
 }
+function DisabledBrew(props) {
+  const [waterLevelState, setWaterLevelState] = useState(null);
+  const [brewState, setBrewState] = useState();
 
-export { StopBrew, StartBrew };
+  useEffect(() => {
+    readWaterLevel2("fredrik", (value) => {
+      setWaterLevelState(value);
+    });
+  }, []);
+  return (
+    <div className="App">
+      <button
+        className="login-button"
+        disabled={
+          waterLevelState !== null &&
+          waterLevelState < minimumValuetoWaterlevel &&
+          !brewState
+        }
+      >
+        Refill water tank
+      </button>
+    </div>
+  );
+  }
+export { StopBrew, StartBrew, DisabledBrew };
