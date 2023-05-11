@@ -54,7 +54,7 @@ export default function CircleLoader(props){
       strokeWidth= {3} 
       styles={{path:{stroke:'red',strokeLinecap: 'butt',},trail:{stroke:'transparent'}, background:{fill:backgroundColor}}}>
         <div className='wheel-text'>Your coffee is brewing</div>
-        <div><span className='wheel-text'>Brewing status: </span><span className='wheel-number'>{((percentage > 0) && percentage) || '0'}%</span></div>
+        <div><span className='wheel-text'>Brewing status: </span><span className='wheel-number'>{(previousPercentageRef.current) || '0'}%</span></div>
       </CircularProgressbarWithChildren>
     </div></>
   );
