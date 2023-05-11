@@ -5,7 +5,7 @@ import {
   readWaterLevel,
   readWaterLevel2,
 } from "../firebaseModel";
-import sound from "../sounds/sound.mp3";
+import sound from "../sounds/finishedBrewing.mp3";
 
 export default function WaterLevel(props){
     const [waterLevelState, setWaterLevelState] = useState(0);
