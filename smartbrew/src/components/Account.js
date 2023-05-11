@@ -39,7 +39,7 @@ export default function Account (){
       <CircleLoader setBrewIsFinished={setBrewIsFinished}  waterLevel={water} turnedOn={status} startWaterLevel={startWaterLevel}/>
       <Timer isBrewingFinished = {brewIsFinished} turnedOn = {setStatusHandler} powerStatus = {status}/>
       <WaterLevel setWaterLevel={setWater}/>
-      <StartPresenter turnOn={startBrewing} powerStatus = {status}/>
+      <StartPresenter turnOn={startBrewing} powerStatus = {status} waterLevel={water}/>
     </div>
   );
 }
