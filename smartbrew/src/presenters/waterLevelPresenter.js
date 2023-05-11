@@ -19,14 +19,12 @@ export default function WaterLevel(props){
     }, [])
     useEffect(() => {
         readWaterLevel2("fredrik", (value) => {
-          console.log("Water level from Firebase:", value);
           setWaterLevelState(value);
           props.setWaterLevel(value);
         });
       }, []);
     useEffect(() => {
         if (hasMounted && waterLevelState === 0) {
-            console.log("hello, mounted?: " + hasMounted + ", waterlevel?: " + waterLevelState )
             audio.play()
         }
         setHasMounted(true)
