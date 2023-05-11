@@ -6,7 +6,7 @@ import Signin from "../components/Signin";
 import Signup from "../components/Signup";
 import { AuthContextProvider } from "../context/AuthContext";
 import ProtectedRoute from "../components/ProtectedRoute";
-import logo from "../smartbrew_logo.svg";
+import logo from "../logo_v3.svg";
 
 
 function App() {

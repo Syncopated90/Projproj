@@ -106,10 +106,10 @@ function Timer(props) {
     <div>
       <div className='site-text'>Keep coffee warm for:</div>
       <div className="timer">{formatTime(timeRemaining)}</div>
-        <button disabled={timerRunning || props.powerStatus} className={timerRunning || props.powerStatus ? 'timer-button disabled' : 'timer-button'} onClick={handleSetTimer}>Set Timer</button>
-        <input disabled={timerRunning || props.powerStatus} className={timerRunning || props.powerStatus ? 'timer-input disabled' : 'timer-input'} id="hours" placeholder="Hour" type="number" min="0" max="2" onChange={handleHoursChange} />
-        <input disabled={timerRunning || props.powerStatus} className={timerRunning || props.powerStatus ? 'timer-input disabled' : 'timer-input'} id="minutes" placeholder="Min" type="number" min="0" max="60" onChange={handleMinutesChange} />
-        <input disabled={timerRunning || props.powerStatus} className={timerRunning || props.powerStatus ? 'timer-input disabled' : 'timer-input'} id="seconds" placeholder="Sec" type="number" min="0" max="60" onChange={handleSecondsChange} />
+      <button disabled={timerRunning || props.powerStatus} className={timerRunning || props.powerStatus ? 'timer-button disabled' : 'timer-button'} onClick={handleSetTimer}>Set Timer</button>
+      <input disabled={timerRunning || props.powerStatus} className={timerRunning || props.powerStatus ? 'timer-input disabled' : 'timer-input'} id="hours" placeholder="Hour" type="number" min="0" max="2" onChange={handleHoursChange} />
+      <input disabled={timerRunning || props.powerStatus} className={timerRunning || props.powerStatus ? 'timer-input disabled' : 'timer-input'} id="minutes" placeholder="Min" type="number" min="0" max="60" onChange={handleMinutesChange} />
+      <input disabled={timerRunning || props.powerStatus} className={timerRunning || props.powerStatus ? 'timer-input disabled' : 'timer-input'} id="seconds" placeholder="Sec" type="number" min="0" max="60" onChange={handleSecondsChange} />
     </div>
   );
 }

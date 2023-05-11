@@ -19,7 +19,7 @@ strong {
   margin-top: 0.5em;
 }
 .waterLevel {
-  margin-top: 50px;
+  margin-top: 0px;
 }
 .sign-to-your-account {
   padding-top:40px;
@@ -176,17 +176,19 @@ strong {
 .wheel-number {
   font-family: 'DotGothic16';
   font-size: 20px;
-  letter-spacing: .1rem;
+  letter-spacing: .2rem;
 }
 .site-text{
   font-family:'Helvetica';
-  font-size:15px;
+  font-size:20px;
   padding-top:20px;
+  margin-bottom:2px;
 }
 .timer {
   font-family: 'DotGothic16';
   font-size: 30px;
   letter-spacing: .1rem;
+  margin-bottom:8px;
 }
 .timer-button{
   appearance: none;
@@ -201,7 +203,7 @@ strong {
   font-size: 16px;
   font-weight: 'regular';
   line-height: normal;
-  margin: 1px;
+  margin-top: 1px;
   min-height: 38px;
   /* max-height: 22px; */
   text-align: center;
@@ -211,7 +213,7 @@ strong {
   -webkit-user-select: none;
   touch-action: manipulation;
   vertical-align: middle;
-  width: 100px;
+  width: 105px;
   will-change: transform;
 }
 .timer-button:disabled {
@@ -234,12 +236,14 @@ strong {
 }
 
 .timer-input{
+  background-color:white;
   border: 1px solid #1A1A1A;
   border-radius: 5px;
   font-size:16px;
   width:60px;
   min-height: 38px;
-  margin:1px;
+  margin-top:1px;
+  margin-left:4px;
   padding-left:6px;
   vertical-align: middle;
 }
@@ -249,19 +253,32 @@ strong {
   font-size:16px;
   width:60px;
   min-height: 38px;
-  margin:1px;
+  margin-top:1px;
+  margin-left:4px;
   padding-left:6px;
   vertical-align: middle;
-  background-color: #ccc;
+  pointer-events: none;
+  opacity: 50%;
 }
 .wheel-text{
   font-family: 'Helvetica';
   font-size:20px;
+}
+.water-text{
+  font-family:'Helvetica';
+  font-size:20px;  
+  margin-top:10px;
+  margin-bottom:12px;
+}
+.water-number{
+  font-family: 'DotGothic16';
+  font-size: 20px;
+  letter-spacing: .2rem;
 }
 
 .input-box.disabled {
   background-color: #ccc;
 }
 .logo{
-  padding-top:50px;
+  padding-top:19px;
 }
