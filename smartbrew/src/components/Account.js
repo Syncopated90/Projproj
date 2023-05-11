@@ -21,9 +21,7 @@ export default function Account (){
     try {
       await logout();
       navigate("/");
-      console.log("You are logged out");
     } catch (e) {
-      console.log(e.messa );
     }
   };
   function startBrewing(boolean){

@@ -67,7 +67,6 @@ function readWaterLevel3(userId, setWaterLevelState){
   onValue(waterLevel, (snapshot) => {
     const data = snapshot.val();
     setWaterLevelState(data) // pass the entire data object as 'waterLevelState'
-    console.log("Firebase data:", data);
   })
   // Unsubscribe from the listener when no longer needed
   return () => off(waterLevel);
