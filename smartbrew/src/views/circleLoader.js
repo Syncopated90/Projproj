@@ -1,6 +1,7 @@
 import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import "../css/App.css";
+import { useRef, useEffect } from 'react';
 
 //background color: F1EFE8
 export default function CircleLoader(props){
@@ -8,6 +9,17 @@ export default function CircleLoader(props){
   var percentage = Math.round(100 * ((absLevelAtStart - props.waterLevel) / absLevelAtStart));
   const backgroundColor = '#F1EFE8'
   const wheelSize= 250
+  const previousPercentageRef = useRef(0);
+
+  useEffect(() => {
+    if(percentage > previousPercentageRef.current){
+      previousPercentageRef.current = percentage
+    }
+  }, [percentage])
+
+  console.log("previous level: "+ previousPercentageRef.current)
+  console.log("current level: "+ percentage)
+
   if(props.turnedOn === false){
     props.setBrewIsFinished(false)
     return (
@@ -37,7 +49,7 @@ export default function CircleLoader(props){
   else return (<>
     <div style={{alignItems: 'center', width: wheelSize, height: wheelSize, margin: 'auto' }}>
       <CircularProgressbarWithChildren 
-      value={percentage}
+      value={previousPercentageRef.current}
       background={true} 
       strokeWidth= {3} 
       styles={{path:{stroke:'red',strokeLinecap: 'butt',},trail:{stroke:'transparent'}, background:{fill:backgroundColor}}}>
