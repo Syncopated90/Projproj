@@ -33,7 +33,7 @@ export default function CircleLoader(props){
           </CircularProgressbarWithChildren>
         </div>
     );}
-  else if(percentage >= 100){
+  else if(previousPercentageRef.current >= 100){
     props.setBrewIsFinished(true)
     return (
         <div style={{ alignItems: 'center', width: wheelSize, height: wheelSize, margin: 'auto' }}>
