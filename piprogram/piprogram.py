@@ -15,7 +15,14 @@ config = {
 }
 
 # get a reference to the firebase app
-firebase = pyrebase.initialize_app(config)
+while True:
+    try:
+        firebase = pyrebase.initialize_app(config)
+        break
+    except Exception as e:
+        print("error trying to initialize firebase app")
+        time.sleep("5")
+
 print("firebase reference acquired, app initialized")
 
 # get a reference to the firebase database
@@ -28,6 +35,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(relay_pin, GPIO.OUT, initial=GPIO.LOW)
 
 # set up sensor object
+sample_size = 18
 trig_pin = 27
 echo_pin = 6
 hcsr04 = sensor.Measurement(trig_pin, echo_pin)
@@ -51,35 +59,29 @@ def stream_handler(message):
         except Exception as e:
             print(e)
 
-# function handles reading of HC-SR04 sensor and updating database value
-# parameter: reference to database
 def water_level_handler(water_event):
     """Reads HC-SR04 sensor and sends the read data to firebase database."""
-    depth = hcsr04.raw_distance()
+    depth = hcsr04.raw_distance(sample_size)
     print("water thread started, depth: {}".format(round(depth, 1)))
-
+    distance = 0
     while not water_event.is_set():
         try:
-            distance = hcsr04.raw_distance()
+            distance = hcsr04.raw_distance(sample_size)
         except Exception as e:
             print(e)
-            distance = 0
             while distance == 0:
-                distance = hcsr04.raw_distance()
+                distance = hcsr04.raw_distance(sample_size)
 
         distance = round(distance, 1) 
         print("{}".format(distance))
         water_level_percentage = get_water_level_percentage(distance, depth)
         db.child("users").child("fredrik").update({"waterLevel": water_level_percentage})
-        if water_level_percentage <= 0:
-            db.child("users").child("fredrik").update({"brewingstatus": False})
-            print("not enough water, stopped")
-        time.sleep(4)
+        time.sleep(1)
 
 def get_water_level_percentage(distance, depth=10):
     """Calculates a percentage based of a reading and a given depth."""
     water_level = depth - distance
-    water_level_percentage = round((water_level / depth) * 100, 0)
+    water_level_percentage = round((water_level / (depth-2)) * 100, 0)
     if water_level_percentage < 0:
         water_level_percentage = 0
     return water_level_percentage
@@ -87,19 +89,25 @@ def get_water_level_percentage(distance, depth=10):
 def main():
     """Main function, program starts and runs here."""
 
-    # start a thread that handles reading ultrasonic distance sensor data and writes it to firebase
+    # start a thread that handles reading ultrasonic distance sensor data and writing it to firebase
     water_event = threading.Event() 
     water_thread = threading.Thread(target=water_level_handler, args=[water_event])
     water_thread.start()
 
-    # listen for value changes
-    data_stream = db.child("users").child("fredrik").stream(stream_handler)
+    # listen for database value changes
+    while True:
+        try:
+            data_stream = db.child("users").child("fredrik").stream(stream_handler)
+            break
+        except Exception as e:
+            print("error trying to open database stream, trying again in 5 seconds...")
+            time.sleep(5)
     print("stream opened, listening for database changes")
 
     # do nothing until a user writes exit or keyboard interrupts
     while True:
         try:
-            if input("write 'exit' to stop program or press Ctrl+C\n") == "exit":
+            if input("enter 'exit' to stop program or press Ctrl+C/Z\n") == "exit":
                 data_stream.close()
                 print("stream closed")
                 water_event.set()
@@ -108,7 +116,8 @@ def main():
                 GPIO.cleanup()
                 print("GPIO cleaned up")
                 sys.exit(130)
-        except KeyboardInterrupt:
+        except KeyboardInterrupt as e:
+            print(e)
             data_stream.close()
             print("stream closed")
             water_event.set()
