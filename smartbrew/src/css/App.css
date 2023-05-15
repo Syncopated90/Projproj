@@ -6,6 +6,7 @@ body {
 }
 .App {
   text-align: center;
+  padding-bottom: 20px;
 }
 .title-bar {
   display: flex;
@@ -282,4 +283,7 @@ strong {
 .logo{
   padding-top:45px;
   padding-bottom: 10px;
+}
+.mobile-padding{
+  padding-bottom: 40px;
 }

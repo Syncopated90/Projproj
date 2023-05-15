@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react'
 import writeUserData, { readBrewStatus } from '../firebaseModel';
 import bubbleSound from '../sounds/bubble.mp3'
 import shutDown from '../sounds/shutdown.mp3'
+import "../css/App.css";
 
 function StartPresenter(props){
   const [brewState, setBrewState] = useState(false);
@@ -41,11 +42,12 @@ function StartPresenter(props){
     props.turnOn(!brewState)
   }
   const setBrewStatus = (state) => {setBrewState(state);}
-  // <StartView setBrewingStatus = {brewStateACB}/>
+  // <StartView setBrewingStatus = {brewStateACB}/> <div className='mobile-padding'></div>
   return (<>
     <div>{brewState && <StopBrew setBrewingStatus = {brewStateACB}/>}</div>
     <div>{!brewState && (props.waterLevel >= 8) && <StartBrew setBrewingStatus = {brewStateACB}/>}</div>
     <div>{!brewState && (props.waterLevel < 8) && <DisabledBrew/>}</div>
+    
     </>);
 }
 
