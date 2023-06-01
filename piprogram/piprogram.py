@@ -7,11 +7,11 @@ from hcsr04sensor import sensor
 
 # firebase api config data
 config = {
-  "apiKey": "AIzaSyD6svOYrsv18vruhGY-YGk5iQcHEQoU0Rs",
-  "authDomain": "smartbrew-1337.firebaseapp.com",
-  "databaseURL": "https://smartbrew-1337-default-rtdb.europe-west1.firebasedatabase.app/",
-  "projectId": "smartbrew-1337",
-  "storageBucket": "smartbrew-1337.appspot.com"
+  "apiKey": "<API_KEY_HERE>",
+  "authDomain": "<AUTHDOMAIN_HERE>",
+  "databaseURL": "<DATABASE_URL_HERE>",
+  "projectId": "<PROJECT_ID_HERE>",
+  "storageBucket": "<STORAGE_BUCKET_HERE>"
 }
 
 # get a reference to the firebase app
